@@ -1,0 +1,2 @@
+# docs
+BitKeep wallet documentation
