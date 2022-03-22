@@ -1,6 +1,7 @@
 {
   "name": "BitKeep Documentation",
   "short_name": "BitKeep Docs",
+  "description": "The Best Decentralized Multi-chain Crypto Wallet",
   "icons": [
     {
       "src": "/bitkeep-icon.svg",

@@ -32,6 +32,21 @@ module.exports = (_ctx) => ({
       },
     ],
     [
+      'link',
+      {
+        rel: 'shortcut icon',
+        href: '/bitkeep-icon.svg',
+        color: '#3eaf7c',
+      },
+      'link',
+      {
+        rel: 'shortcut icon',
+        href: '/favicon.ico',
+        color: '#3eaf7c',
+        type:"image/x-icon"
+      }
+    ],
+    [
       'meta',
       {
         name: 'msapplication-TileImage',
@@ -39,6 +54,7 @@ module.exports = (_ctx) => ({
       },
     ],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+    ['script', { src:"/js/extend.js" }],
   ],
 
   theme: '@vuepress/theme-default',
@@ -70,6 +86,7 @@ module.exports = (_ctx) => ({
       },
     },
   },
+
 
   plugins: [
     ['@vuepress/back-to-top', true],
@@ -113,7 +130,7 @@ module.exports = (_ctx) => ({
       {
         useUrlFragment: false,
       },
-    ],
+    ]
   ],
 
   extraWatchFiles: ['.vuepress/nav/en.js'],
