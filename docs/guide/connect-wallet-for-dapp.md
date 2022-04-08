@@ -4,7 +4,7 @@ BitKeep supports common schemes to connect, such as Metamask / TronWeb, etc. The
 
 ## EVM(Ethereum) Connect
 
-The Metamask protocol is a universal wallet connection scheme for Ethereum or EVM chains. BitKeep complies with the Metamask protocol by default, and will implant `window.ethereum` object in the webview. Developers can directly develop follow [MetaMask Documents](https://docs.metamask.io/guide/ethereum-provider.html).
+The Metamask protocol is a universal wallet connection scheme for Ethereum or EVM chains. BitKeep complies with the Metamask protocol by default, and will implant `window.ethereum` object in the webview. Developers can directly develop follow [MetaMask Documents](https://docs.metamask.io/guide/ethereum-provider.html) or [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp)
 
 ```javascript
 window.ethereum = {
@@ -24,7 +24,7 @@ If the wallet cannot be connected (the `window.ethereum` object cannot be obtain
 
 ## Solana Connect
 
-BitKeep webview has built-in Solana object `window.solana`. Developers can directly develop follow [Solona Web3 Documents](https://github.com/solana-labs/solana-web3.js).
+BitKeep webview has built-in Solana object `window.solana`. Developers can directly develop follow [Solona Web3 Documents](https://github.com/solana-labs/solana-web3.js) or [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/solana/dapp)
 
 ```javascript
 window.solana = {
@@ -44,7 +44,7 @@ window.solana = {
 
 ## Tron Connect
 
-BitKeep browser has built-in TronWeb object `window.tronWeb`. You can perform related operations of the TRON chain through tronWeb. Developers can directly develop follow [TronWeb Documents](https://cn.developers.tron.network/reference#tronweb-object).
+BitKeep browser has built-in TronWeb object `window.tronWeb`. You can perform related operations of the TRON chain through tronWeb. Developers can directly develop follow [TronWeb Documents](https://cn.developers.tron.network/reference#tronweb-object) or [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/tron/dapp)
 
 
 ```javascript
