@@ -274,7 +274,7 @@ const isBitkeepInstalled = window.tronLink &&  window.isBitkeep
 
 #### EVM(Native App SDK)
 
-请参考[WalletConnect](https://docs.walletconnect.com/quick-start)知道对应的环境接入
+请参考[WalletConnect](https://docs.walletconnect.com/quick-start)按照对应的环境接入
 
 
 
