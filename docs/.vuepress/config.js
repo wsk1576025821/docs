@@ -80,6 +80,7 @@ module.exports = (_ctx) => ({
           '/guide/': getGuideSidebar(
             'Guide',
             'DApp Development',
+            'How To Connect',
             'Resources'
           ),
         },
@@ -134,6 +135,7 @@ module.exports = (_ctx) => ({
   ],
 
   extraWatchFiles: ['.vuepress/nav/en.js'],
+
 });
 
 function getGuideSidebar(guide, dapp, resources) {
@@ -152,14 +154,15 @@ function getGuideSidebar(guide, dapp, resources) {
         'connect-wallet-for-dapp',
         'switch-network-for-dapp',
         'webview-function',
-        'apply-list-for-dapp'
+        'apply-list-for-dapp',
+        'how-to-connect'
       ],
     },
     {
       title: resources,
       collapsable: false,
       children: [
-
+    
       ],
     },
   ];
