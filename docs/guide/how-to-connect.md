@@ -9,8 +9,10 @@
 
 # 集成
 为了便于特别检测,全局对象挂在了isBitKeep
-![Open Bitkeep app browser and scan](../images/connect/isBitkeep.png)
-如果未安装 BitKeep，我们建议您将用户重定向到[我们的网站](https://bitkeep.com/download?type=2)。
+<!-- ![Open Bitkeep app browser and scan](../images/connect/isBitkeep.png)(:width='300px' height="300px") -->
+<img src='../images/connect/isBitkeep.png' width='300px'/>
+
+如果未安装 BitKeep，我们建议您将用户重定向到[我们的网站](https://bitkeep.com/download?type=2 )。
 
 
 
@@ -25,7 +27,7 @@
 
 #### 是否安装
 ``` js
-const isBitkeepInstalled = window.ethereum && window.ethereum.isBitkeep
+    const isBitkeepInstalled = window.ethereum && window.ethereum.isBitkeep
 ```
 
 #### Provider 
@@ -36,14 +38,14 @@ const isBitkeepInstalled = window.ethereum && window.ethereum.isBitkeep
 #### eth_requestAccounts 请求授权连接 
 ``` js
 
-const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
-const account = accounts[0];
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    const account = accounts[0];
 
-//if used web3
-const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
-const web3 = new Web3(ethereum)
-const [address] = await web3.eth.getAccounts(); // address
-const chainId = await web3.eth.getChainId();  // chainId  
+    //if used web3
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    const web3 = new Web3(ethereum)
+    const [address] = await web3.eth.getAccounts(); // address
+    const chainId = await web3.eth.getChainId();  // chainId  
 
 ```
 #### connected
@@ -124,7 +126,7 @@ const chainId = await web3.eth.getChainId();  // chainId
 
 ### 是否安装
 ``` js
-const isBitkeepInstalled = window.tronLink &&  window.isBitkeep
+    const isBitkeepInstalled = window.tronLink &&  window.isBitkeep
 ```
 
 #### eth_requestAccounts 请求授权连接 
@@ -212,6 +214,7 @@ const isBitkeepInstalled = window.tronLink &&  window.isBitkeep
 ```
 
 #### sendTransaction 
+可以参考以下demo实现
 [simple demo](https://github.com/bitkeepwallet/download/blob/example/example/solana/dapp/index.html) 
 [web3 demo](https://github.com/solana-labs/solana/tree/master/web3.js/examples) 
 [Token demo](https://github.com/solana-labs/solana-program-library/tree/master/token/js/examples)
