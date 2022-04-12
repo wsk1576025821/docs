@@ -9,6 +9,7 @@
 
 # 集成
 为了便于特别检测,全局对象挂在了isBitKeep
+
 <!-- ![Open Bitkeep app browser and scan](../images/connect/isBitkeep.png)(:width='300px' height="300px") -->
 <img src='../images/connect/isBitkeep.png' width='300px'/>
 

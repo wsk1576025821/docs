@@ -80,7 +80,6 @@ module.exports = (_ctx) => ({
           '/guide/': getGuideSidebar(
             'Guide',
             'DApp Development',
-            'How To Connect',
             'Resources'
           ),
         },
@@ -162,7 +161,7 @@ function getGuideSidebar(guide, dapp, resources) {
       title: resources,
       collapsable: false,
       children: [
-    
+        "resources"
       ],
     },
   ];
