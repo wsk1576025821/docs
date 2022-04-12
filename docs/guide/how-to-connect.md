@@ -1,32 +1,34 @@
 # How To Connect
-这适用BitKeep现在支持区块链,包括 EVM(Ethereum、BSC、Arbitrum、Polygon、Fantom...), TRON, Solana, Terra Arweave, IOST等
+This applies to bitkeep, which now supports blockchains, including EVM(Ethereum、BSC、Arbitrum、Polygon、Fantom...), TRON, Solana, Terra Arweave, IOST ...
 [Logo](https://github.com/bitkeepwallet/download) 
 [Simple demo](https://github.com/bitkeepwallet/download/tree/example)
 
-# 开源代码集成
-如何您使用的是开源代码，需要我们支持push开源代码，欢迎联系我们[Contact us](https://bitkeep.com/about#Contact_us)。
+# Open source code integration
+If you use open source code and need us to support push open source code, please [Contact us](https://bitkeep.com/about#Contact_us)。
 
 
-# 集成
-为了便于特别检测,全局对象挂在了isBitKeep
+# Integrate
+In order to facilitate special detection, the global object is attached with the ```isBitkeep``` attribute.
 
 <!-- ![Open Bitkeep app browser and scan](../images/connect/isBitkeep.png)(:width='300px' height="300px") -->
 <img src='../images/connect/isBitkeep.png' width='300px'/>
 
-如果未安装 BitKeep，我们建议您将用户重定向到[我们的网站](https://bitkeep.com/download?type=2 )。
+If bitkeep is not installed, we recommend that you redirect users to [our website](https://bitkeep.com/download?type=2 )。
 
 
 
 
 ## EVM
-#### 简介 
-我们提供了[Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp)，也可以参考[MetaMask Documents](https://docs.metamask.io/guide/ethereum-provider.html)方式我们也是支持的。
-
-你也可以使用第三方库配合```ethereum```使用, [web3js](https://www.npmjs.com/package/web3) [ethers](https://www.npmjs.com/package/ethers)等。
+#### Introduction 
+We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp). You can also refer to [MetaMask Documents](https://docs.metamask.io/guide/ethereum-provider.html). We also support it.
 
 
+You can also use third-party libraries in conjunction with ```ethereum```, [web3js](https://www.npmjs.com/package/web3)  [ethers](https://www.npmjs.com/package/ethers)... 
 
-#### 是否安装
+
+
+
+#### isInstalled
 ``` js
     const isBitkeepInstalled = window.ethereum && window.ethereum.isBitkeep
 ```
@@ -36,7 +38,7 @@
     window.ethereum 
 ```
 
-#### eth_requestAccounts 请求授权连接 
+#### eth_requestAccounts(request authorization to connect) 
 ``` js
 
     const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
@@ -53,8 +55,8 @@
 ```js
     window.ethereum.connected
 ```
-#### Event事件监听
-集成了[eventemitter3](https://www.npmjs.com/package/eventemitter3) 通讯机制
+#### Event  listeners
+used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
 ```js
     ethereum.removeAllListeners(); 
     ethereum.on("accountsChanged", ([address]) => {
@@ -65,7 +67,7 @@
     });
 ```
 
-#### sendTransaction 转账 
+#### sendTransaction(Transfer) 
 ```js
     const transactionParameters = {
         nonce: '0x00', // ignored by Bitkeep
@@ -96,7 +98,7 @@
     });
 
 ```
-#### 第三方库连接
+#### Using open source libraries
 [web3modal](https://github.com/Web3Modal/web3modal)
 ```js
    import Web3Modal, { connectors } from "web3modal"
@@ -122,15 +124,16 @@
 
 
 ## Tron
-我们提供了[Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/tron/dapp), 同时也兼容了[tronlink dapp](https://developers.tron.network/docs/dapp-integrate-with-tronlink-introduction)的方式
+We provide [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/tron/dapp) and are compatible with [tronlink dapp](https://developers.tron.network/docs/dapp-integrate-with-tronlink-introduction).
 
 
-### 是否安装
+
+### isInstalled
 ``` js
     const isBitkeepInstalled = window.tronLink &&  window.isBitkeep
 ```
 
-#### eth_requestAccounts 请求授权连接 
+#### eth_requestAccounts(request authorization to connect) 
 ```js
     try{
         await tronLink.request({ method: "tron_requestAccounts" });
@@ -146,7 +149,7 @@
     window.tronWeb.ready
 ```
 
-#### sendTransaction 转账 
+#### sendTransaction(Transfer)
 ```js
 
     var tronweb = window.tronWeb
@@ -177,10 +180,9 @@
 
 
 ## solana
-我们提供了[Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/solana/dapp) 同时也可以参考 [solana-web3](https://solana-labs.github.io/solana-web3.js/)
+We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/solana/dapp), and you can also refer to [solana-web3](https://solana-labs.github.io/solana-web3.js/)
 
-
-####是否安装
+#### IsInstalled
 ``` js
     const isBitkeepInstalled = window.solana && window.isBitkeep
 ```
@@ -190,7 +192,7 @@
     window.solana
 ```
 
-#### connect 请求连接 
+#### connect(request authorization to connect)
 ``` js 
     try{
         await window.solana.connect();
@@ -208,28 +210,28 @@
     window.solana.publicKey.toString() // Once the web application is connected to Bitkeep
 ```
 
-#### Event事件监听
-集成了[eventemitter3](https://www.npmjs.com/package/eventemitter3) 通讯机制
+#### Event listeners
+used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
 ```js
     window.solana.on("connect", () => console.log("connected!"))  
 ```
 
 #### sendTransaction 
-可以参考以下demo实现
+You can refer to the following demo :
 [simple demo](https://github.com/bitkeepwallet/download/blob/example/example/solana/dapp/index.html) 
 [web3 demo](https://github.com/solana-labs/solana/tree/master/web3.js/examples) 
 [Token demo](https://github.com/solana-labs/solana-program-library/tree/master/token/js/examples)
 
 
 ## Terra
-更新中...
+Updating...
 
 
 
 
 ## WalletConnect 
 #### EVM(WebApp) 
-我们同样支持[WalletConnect](https://docs.walletconnect.com/quick-start/dapps/client) 方式连接，具体请参考walletConnect文档。 同样我们提供了简单[simple demo](https://github.com/bitkeepwallet/download/tree/example/example/walletConnect)
+We also support [WalletConnect](https://docs.walletconnect.com/quick-start/dapps/client). Please refer to walletconnect documentation for details. Similarly, we provide a [simple demo](https://github.com/bitkeepwallet/download/tree/example/example/walletConnect)
 
     npm install --save @walletconnect/client @walletconnect/qrcode-modal
 ```js
@@ -277,8 +279,7 @@
 ```
 
 #### EVM(Native App SDK)
-
-请参考[WalletConnect](https://docs.walletconnect.com/quick-start)按照对应的环境接入
+Please refer to the  [WalletConnect Doc](https://docs.walletconnect.com/quick-start)  and follow to find the docking documentation of your current program
 
 
 
