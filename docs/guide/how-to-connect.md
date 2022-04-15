@@ -3,9 +3,6 @@ This applies to bitkeep, which now supports blockchains, including EVM(Ethereum�
 [Logo](https://github.com/bitkeepwallet/download) 
 [Simple demo](https://github.com/bitkeepwallet/download/tree/example)
 
-# Open source code integration
-If you use open source code and need us to support push open source code, please [Contact us](https://bitkeep.com/about#Contact_us)。
-
 
 # Integrate
 In order to facilitate special detection, the global object is attached with the ```isBitkeep``` attribute.
@@ -18,9 +15,16 @@ If bitkeep is not installed, we recommend that you redirect users to [our websit
 
 
 
-## EVM
+## EVM 
+Ethereum, Binance Smart Chain, Avalanche-C, Fantom, Polygon, Arbitrum...
+
+[chainlist](https://chainlist.org/) 
+[json](https://chainid.network/chains.json)
+
+The test network is not supported for the time being. If there is no mainnet you are looking for, please [Contact us](https://bitkeep.com/about#Contact_us)。 to add it.
+
 #### Introduction 
-We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp). You can also refer to [MetaMask Documents](https://docs.metamask.io/guide/ethereum-provider.html). We also support it.
+We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp). You can also refer to [MetaMask Dapp](https://docs.metamask.io/guide/create-dapp.html#project-setup)[MetaMask Dapp demo](https://github.com/BboyAkers/simple-dapp-tutorial). We also support it.
 
 
 You can also use third-party libraries in conjunction with ```ethereum```, [web3js](https://www.npmjs.com/package/web3)  [ethers](https://www.npmjs.com/package/ethers)... 
@@ -277,6 +281,16 @@ We also support [WalletConnect](https://docs.walletconnect.com/quick-start/dapps
 
 #### EVM(Native App SDK)
 Please refer to the  [WalletConnect Doc](https://docs.walletconnect.com/quick-start)  and follow to find the docking documentation of your current program
+
+
+
+## Used Open source code
+
+[web3modal](https://github.com/Web3Modal/web3modal)
+
+[sushiswap-interface/pulls](https://github.com/sushiswap/sushiswap-interface/pulls)
+
+If you use open source code and need us to support push open source code, please [Contact us](https://bitkeep.com/about#Contact_us)。
 
 
 
