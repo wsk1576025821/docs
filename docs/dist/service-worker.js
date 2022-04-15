@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "48129a802cb35fd69657ec5cf5caf75e"
+    "revision": "d059bf9f41e8827688ec478a82a0c18c"
   },
   {
-    "url": "assets/css/0.styles.86622e16.css",
-    "revision": "6e3238ed881ec89d4776cfd201b307e3"
+    "url": "assets/css/0.styles.00514bcc.css",
+    "revision": "f6e142f5c9defa76d1b7b37a62aad7b0"
   },
   {
     "url": "assets/img/isBitkeep.578a705b.png",
@@ -42,36 +42,36 @@ self.__precacheManifest = [
     "revision": "83621669651b9a3d4bf64d1a670ad856"
   },
   {
-    "url": "assets/js/10.95201bfd.js",
-    "revision": "fa4dafa7356c651176a0a306dabad6a9"
+    "url": "assets/js/10.184c7ef0.js",
+    "revision": "987f6cae727c8760addcc14c3cfd17b1"
   },
   {
     "url": "assets/js/11.03548870.js",
     "revision": "6b359fbe8851c0fb277b4e74315eaf4d"
   },
   {
-    "url": "assets/js/12.30fe797d.js",
-    "revision": "53e5b86f7438880657a8cd8d81350821"
+    "url": "assets/js/12.626b7601.js",
+    "revision": "120d3460867f2d115dbd47d680a05a1c"
   },
   {
-    "url": "assets/js/13.d032bf5d.js",
-    "revision": "14e03eb6d5e727e94063e2b7926916b7"
+    "url": "assets/js/13.1251d660.js",
+    "revision": "f543a060998f194e3323d71e1a12ab64"
   },
   {
     "url": "assets/js/14.f3bae605.js",
     "revision": "a32e719d8ad5aedeb600e3d889ce9424"
   },
   {
-    "url": "assets/js/15.da7c4f88.js",
-    "revision": "6653c1120d1ad998d7d7e8de647ecdf2"
+    "url": "assets/js/15.701f56cc.js",
+    "revision": "313d3af52b2fa7f9300b4d8cf3c4fe56"
   },
   {
-    "url": "assets/js/16.8d6d8156.js",
-    "revision": "f4df01b60efbb8cbcad85a9eb08aa9cf"
+    "url": "assets/js/16.f11edc9c.js",
+    "revision": "2b9aaae390e7a87e63f9e5d1236d0e87"
   },
   {
-    "url": "assets/js/17.4ea6500e.js",
-    "revision": "0cc5edee040d82981892b764cfdd495e"
+    "url": "assets/js/17.7b179169.js",
+    "revision": "0f615075f4d4a4b8bd196d20a34c0085"
   },
   {
     "url": "assets/js/18.b268993d.js",
@@ -90,20 +90,20 @@ self.__precacheManifest = [
     "revision": "82ad96505df6f1c2a7d8e48877a2f83d"
   },
   {
-    "url": "assets/js/7.9a4f873b.js",
-    "revision": "e30a2dcd7f1d561b51e6ed65442163e0"
+    "url": "assets/js/7.e34a9b8e.js",
+    "revision": "0a25a12649e2fdbefeb99ec41356ac24"
   },
   {
-    "url": "assets/js/8.2c349e50.js",
-    "revision": "1b8956522f9cfc81f503209170341442"
+    "url": "assets/js/8.e298b187.js",
+    "revision": "f803fb2c0faa720071ccd9014da470a6"
   },
   {
-    "url": "assets/js/9.b85f2127.js",
-    "revision": "2519f8f2f529bedb2315fceb4e8b1121"
+    "url": "assets/js/9.d5650888.js",
+    "revision": "20cd9ef5e65c541f03ba5f974fa5e918"
   },
   {
-    "url": "assets/js/app.932e2609.js",
-    "revision": "d01b26c93c07b77398407c17e447d1db"
+    "url": "assets/js/app.de91aec0.js",
+    "revision": "a2e84b671579d855438440d3b3c57d3b"
   },
   {
     "url": "assets/js/vendors~docsearch.21f21cd2.js",
@@ -119,35 +119,35 @@ self.__precacheManifest = [
   },
   {
     "url": "faq/index.html",
-    "revision": "445e5ffb478f6fc9702c74302c147dfd"
+    "revision": "aad01d295ea47f2bf123fb33e311f3be"
   },
   {
     "url": "guide/apply-list-for-dapp.html",
-    "revision": "8e62785b4f4ad594d09771158a3dff3b"
+    "revision": "6c4cb21a8bf1ef48e1a7cec89f1875ad"
   },
   {
     "url": "guide/connect-wallet-for-dapp.html",
-    "revision": "fe326e3521133bbd189a6898c035cf26"
+    "revision": "3e99c10015d3ec13213c92a7949fdf81"
   },
   {
     "url": "guide/how-to-connect.html",
-    "revision": "55ad5446f9d6e34b9c302f464092e4ee"
+    "revision": "69db05ef599e21d65a9c1cc1ccd3397d"
   },
   {
     "url": "guide/index.html",
-    "revision": "42b6259922d1d9b53b9611bd2e999619"
+    "revision": "b1aa1d386e533feafc88af05456fbb8c"
   },
   {
     "url": "guide/resources.html",
-    "revision": "bf43796647149eea3635e17d6a601731"
+    "revision": "67b3bfb787f02636e21e9c3446f77ffc"
   },
   {
     "url": "guide/switch-network-for-dapp.html",
-    "revision": "c3b8973a67471507e5fb3e994f93e16d"
+    "revision": "8e6040a5f8956d6496534867a23497b0"
   },
   {
     "url": "guide/webview-function.html",
-    "revision": "6d115ad573baeab59e7dec395086ee09"
+    "revision": "4a00cab1cfa75a801bd1d33e63c6213d"
   },
   {
     "url": "js/extend.js",
