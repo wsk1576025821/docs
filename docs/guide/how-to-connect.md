@@ -5,10 +5,10 @@ This applies to bitkeep, which now supports blockchains, including EVM(Ethereum�
 
 
 # Integrate
-In order to facilitate special detection, the global object is attached with the ```isBitkeep``` attribute.
+In order to facilitate special detection, the global object is attached with the ```isBitKeep``` attribute.
 
-<!-- ![Open Bitkeep app browser and scan](../images/connect/isBitkeep.png)(:width='300px' height="300px") -->
-<img src='../images/connect/isBitkeep.png' width='300px'/>
+<!-- ![Open Bitkeep app browser and scan](../images/connect/isBitKeep.png)(:width='300px' height="300px") -->
+<img src='../images/connect/isBitKeep.png' width='300px'/>
 
 If bitkeep is not installed, we recommend that you redirect users to [our website](https://bitkeep.com/download?type=2 )。
 
@@ -17,6 +17,8 @@ If bitkeep is not installed, we recommend that you redirect users to [our websit
 
 ## EVM 
 Ethereum, Binance Smart Chain, Avalanche-C, Fantom, Polygon, Arbitrum...
+
+
 
 [chainlist](https://chainlist.org/) 
 [json](https://chainid.network/chains.json)
@@ -27,52 +29,77 @@ The test network is not supported for the time being. If there is no mainnet you
 We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp). You can also refer to [MetaMask Dapp](https://docs.metamask.io/guide/create-dapp.html#project-setup)[MetaMask Dapp demo](https://github.com/BboyAkers/simple-dapp-tutorial). We also support it.
 
 
-You can also use third-party libraries in conjunction with ```ethereum```, [web3js](https://www.npmjs.com/package/web3)  [ethers](https://www.npmjs.com/package/ethers)... 
+You can also use third-party libraries in conjunction with ```window.bitkeep.ethereum || window.ethereum```,  [web3js](https://www.npmjs.com/package/web3)  [ethers](https://www.npmjs.com/package/ethers)... 
 
 
+### 
 
 
 #### isInstalled
 ``` js
-    const isBitkeepInstalled = window.ethereum && window.ethereum.isBitkeep
+    const isBitKeepInstalled = window.isBitKeep && 
+    (window.bitkeep.ethereum || window.ethereum)
 ```
 
+
+
 #### Provider 
+You can use `window.ethereum || window.bitkeep.ethereum`.
+
+
+
 ``` js
-    window.ethereum 
+   function  getProvider(){
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false; 
+        if(!window.isBitKeep || !window.bitkeep){
+            // if(!isMobile){
+            // window.open('https://chrome.google.com/webstore/detail/bitkeep-bitcoin-crypto-wa/jiidiaalihmmhddjgbnbgdfflelocpak') 
+            //     console.log("please install BitKeep")
+            // }
+            return null
+        }
+        return window.bitkeep.ethereum  || window.ethereum
+    }
 ```
+### isCanCover
+If you want to distinguish multiple wallets, the provider can use `bitkeep.ethereum` and set `windows bitkeep.isCanCover=true` 
+
 
 #### eth_requestAccounts(request authorization to connect) 
 ``` js
+    const Provider = getProvider()
 
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    const accounts = await Provider.request({ method: 'eth_requestAccounts'});
     const account = accounts[0];
 
     //if used web3
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
-    const web3 = new Web3(ethereum)
+    const accounts = await Provider.request({ method: 'eth_requestAccounts'});
+    const web3 = new Web3(Provider)
     const [address] = await web3.eth.getAccounts(); // address
     const chainId = await web3.eth.getChainId();  // chainId  
 
 ```
 #### connected
 ```js
-    window.ethereum.connected
+    const Provider = getProvider()
+    Provider.connected
 ```
 #### Event  listeners
 used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
 ```js
-    ethereum.removeAllListeners(); 
-    ethereum.on("accountsChanged", ([address]) => {
+    const Provider = getProvider()
+    Provider.removeAllListeners(); 
+    Provider.on("accountsChanged", ([address]) => {
          alert("address changed")
     });
-    ethereum.on("chainChanged", async (chainId) => {
+    Provider.on("chainChanged", async (chainId) => {
           alert("chainid changed")
     });
 ```
 
 #### sendTransaction(Transfer) 
 ```js
+    const Provider = getProvider()
     const transactionParameters = {
         nonce: '0x00', // ignored by Bitkeep
         gasPrice: '0x09184e72a000', // customizable by user during Bitkeep confirmation.
@@ -87,16 +114,16 @@ used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
 
     // txHash is a hex string
     // As with any RPC call, it may throw an error
-    const txHash = await ethereum.request({
+    const txHash = await Provider.request({
     method: 'eth_sendTransaction',
     params: [transactionParameters],
     });
 
     // if used web3 
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
-    const web3 = new Web3(ethereum);  
+    const accounts = await Provider.request({ method: 'eth_requestAccounts'});
+    const web3 = new Web3(Provider);  
     const result = await web3.eth.sendTransaction({
-            from: ethereum.selectedAddress,
+            from: window.bitkeep.ethereum.selectedAddress,
             to:"0x0000000000000000000000000000000000000000",
             value: web3.utils.toWei("1", "ether"),
     });
@@ -134,7 +161,7 @@ We provide [Simple  demo](https://github.com/bitkeepwallet/download/tree/example
 
 ### isInstalled
 ``` js
-    const isBitkeepInstalled = window.tronLink &&  window.isBitkeep
+    const isBitKeepInstalled = window.tronLink &&  window.isBitKeep
 ```
 
 #### eth_requestAccounts(request authorization to connect) 
@@ -186,22 +213,25 @@ We provide [Simple  demo](https://github.com/bitkeepwallet/download/tree/example
 ## solana
 We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/solana/dapp), and you can also refer to [solana-web3](https://solana-labs.github.io/solana-web3.js/)
 
+
+
 #### IsInstalled
 ``` js
-    const isBitkeepInstalled = window.solana && window.isBitkeep
+    const isBitKeepInstalled = window.isBitKeep && window.bitkeep.solana
 ```
 
 #### Provider 
+
 ``` js
-    window.solana
+    window.bitkeep.solana || window.solana
 ```
 
 #### connect(request authorization to connect)
 ``` js 
     try{
-        await window.solana.connect();
-        const publicKey = await window.solana.getAccount()
-        window.solana.publicKey.toString()  // Once the web application is connected to Bitkeep, 
+        await  window.bitkeep.solana.connect();
+        const publicKey = await  window.bitkeep.solana.getAccount()
+        window.bitkeep.solana.publicKey.toString()  // Once the web application is connected to Bitkeep, 
     }catch{
         alert("connected error")
     }
@@ -209,15 +239,15 @@ We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/examp
 ```
 #### connected
 ```js
-    window.solana.connected
-    const publicKey = await window.solana.getAccount() 
-    window.solana.publicKey.toString() // Once the web application is connected to Bitkeep
+     window.bitkeep.solana.connected
+    const publicKey = await  window.bitkeep.solana.getAccount() 
+     window.bitkeep.solana.publicKey.toString() // Once the web application is connected to Bitkeep
 ```
 
 #### Event listeners
 used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
 ```js
-    window.solana.on("connect", () => console.log("connected!"))  
+     window.bitkeep.solana.on("connect", () => console.log("connected!"))  
 ```
 
 #### sendTransaction 
@@ -284,11 +314,9 @@ Please refer to the  [WalletConnect Doc](https://docs.walletconnect.com/quick-st
 
 
 
-## Used Open source code
+## Used  Open source library
 
-[web3modal](https://github.com/Web3Modal/web3modal)
-
-[sushiswap-interface/pulls](https://github.com/sushiswap/sushiswap-interface/pulls)
+for example: [web3modal](https://github.com/Web3Modal/web3modal)
 
 If you use open source code and need us to support push open source code, please [Contact us](https://bitkeep.com/about#Contact_us)。
 
