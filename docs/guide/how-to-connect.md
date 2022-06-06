@@ -199,7 +199,7 @@ We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/examp
 #### Provider 
 
 ``` js
-    window.bitkeep.solana || window.solana
+    window.bitkeep.solana 
 ```
 
 #### connect(request authorization to connect)
@@ -291,9 +291,6 @@ Please refer to the  [WalletConnect Doc](https://docs.walletconnect.com/quick-st
 
 
 ## Used  Open source library
-
-for example: [web3modal](https://github.com/Web3Modal/web3modal)
-
 If you use open source code and need us to support push open source code, please [Contact us](https://bitkeep.com/about#Contact_us)。
 
 

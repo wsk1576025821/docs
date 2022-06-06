@@ -1,12 +1,23 @@
-# Connect Wallet
 
+
+# Connect Wallet
+[BitKeep App and Chrome extension conneted](./how-to-connect.html)
 BitKeep supports common schemes to connect, such as Metamask / TronWeb, etc. Therefore, developers do not need to do additional compatibility. BitKeep supports universal wallet connection by default.
 
 ## EVM(Ethereum) Connect
 
-The Metamask protocol is a universal wallet connection scheme for Ethereum or EVM chains. BitKeep complies with the Metamask protocol by default, and will implant `window.ethereum` object in the webview. Developers can directly develop follow [MetaMask Documents](https://docs.metamask.io/guide/ethereum-provider.html) or [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp)
+The Metamask protocol is a universal wallet connection scheme for Ethereum or EVM chains. BitKeep complies with the Metamask protocol by default, and will implant `window.bitkeep.ethereum` object in the webview. Developers can directly develop follow [MetaMask Documents](https://docs.metamask.io/guide/ethereum-provider.html) or [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp)
 
 ```javascript
+window.bitkeep.ethereum = {
+    isBitKeep: true,
+    networkId: 1,
+    chainId: "0x1",
+    rpc: {},
+    request: ()=>{},
+    send: ()=>{},
+    sendAsync: ()=>{}
+}
 window.ethereum = {
     isBitKeep: true,
     networkId: 1,
@@ -19,14 +30,27 @@ window.ethereum = {
 ```
 
 ::: tip
-If the wallet cannot be connected (the `window.ethereum` object cannot be obtained), please delay the initialization time of web3 appropriately.
+If the wallet cannot be connected (the `window.bitkeep.ethereum` object cannot be obtained), please delay the initialization time of web3 appropriately.
 :::
 
 ## Solana Connect
 
-BitKeep webview has built-in Solana object `window.solana`. Developers can directly develop follow [Solona Web3 Documents](https://github.com/solana-labs/solana-web3.js) or [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/solana/dapp)
+BitKeep webview has built-in Solana object `window.bitkeep.solana`. Developers can directly develop follow [Solona Web3 Documents](https://github.com/solana-labs/solana-web3.js) or [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/solana/dapp)
 
 ```javascript
+window.bitkeep.solana = {
+    isBitKeep: true,
+    connected: true,
+    autoApprove: false,
+    publicKey: "8RwVBVHoEdfnob4doYnrNJeEsCjptBtX6Ut1Cb2TFSm5",
+    connect: ()=>{},
+    disconnect: ()=>{}.
+    on: (event, callback)=>{},
+    async signTransaction: (transaction)=>{
+    	//the "transaction" argument is Transaction from "@solana/web3.js"
+        //return signed transaction.
+    }
+}
 window.solana = {
     isBitKeep: true,
     connected: true,
