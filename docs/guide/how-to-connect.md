@@ -29,48 +29,45 @@ The test network is not supported for the time being. If there is no mainnet you
 We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp). You can also refer to [MetaMask Dapp](https://docs.metamask.io/guide/create-dapp.html#project-setup)[MetaMask Dapp demo](https://github.com/BboyAkers/simple-dapp-tutorial). We also support it.
 
 
-You can also use third-party libraries in conjunction with ```window.bitkeep.ethereum || window.ethereum```,  [web3js](https://www.npmjs.com/package/web3)  [ethers](https://www.npmjs.com/package/ethers)... 
+You can also use third-party libraries in conjunction with ```window.bitkeep.ethereum```,  [web3js](https://www.npmjs.com/package/web3)  [ethers](https://www.npmjs.com/package/ethers)... 
 
 
+```window.bitkeep.ethereum``` implementation and ```window.ethereum``` is the same. If you use a third-party library, just use ```window.bitkeep.ethereum``` replaced ```window.ethereum``` can be used to distinguish between BitKeep wallet and other wallets
 ### 
 
 
 #### isInstalled
 ``` js
-    const isBitKeepInstalled = window.isBitKeep && 
-    (window.bitkeep.ethereum || window.ethereum)
+    const isBitKeepInstalled = window.isBitKeep && window.bitkeep.ethereum
 ```
 
 
 
 #### Provider 
-You can use `window.ethereum || window.bitkeep.ethereum`.
-
-
+You can use `window.bitkeep.ethereum`.
 
 ``` js
    function  getProvider(){
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false; 
-        if(!window.isBitKeep || !window.bitkeep){
+        if(!window.isBitKeep){
             // if(!isMobile){
             // window.open('https://chrome.google.com/webstore/detail/bitkeep-bitcoin-crypto-wa/jiidiaalihmmhddjgbnbgdfflelocpak') 
             //     console.log("please install BitKeep")
             // }
             return null
         }
-        return window.bitkeep.ethereum  || window.ethereum
+        return window.bitkeep.ethereum
     }
 ```
-### isCanCover
-If you want to distinguish multiple wallets, the provider can use `bitkeep.ethereum` and set `windows bitkeep.isCanCover=true` 
-
 
 #### eth_requestAccounts(request authorization to connect) 
 ``` js
+     //if used injected
     const Provider = getProvider()
 
     const accounts = await Provider.request({ method: 'eth_requestAccounts'});
     const account = accounts[0];
+
 
     //if used web3
     const accounts = await Provider.request({ method: 'eth_requestAccounts'});
@@ -105,7 +102,7 @@ used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
         gasPrice: '0x09184e72a000', // customizable by user during Bitkeep confirmation.
         gas: '0x2710', // customizable by user during Bitkeep confirmation.
         to: '0x0000000000000000000000000000000000000000', // Required except during contract publications.
-        from: ethereum.selectedAddress, // must match user's active address.
+        from: Provider.selectedAddress, // must match user's active address.
         value: '0x00', // Only required to send ether to the recipient from the initiating external account.
         data:
             '0x7f7465737432000000000000000000000000000000000000000000000000000000600057', // Optional, but used for defining smart contract creation and interaction.
@@ -123,35 +120,14 @@ used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
     const accounts = await Provider.request({ method: 'eth_requestAccounts'});
     const web3 = new Web3(Provider);  
     const result = await web3.eth.sendTransaction({
-            from: window.bitkeep.ethereum.selectedAddress,
+            from: Provider.selectedAddress,
             to:"0x0000000000000000000000000000000000000000",
             value: web3.utils.toWei("1", "ether"),
     });
 
 ```
 #### Using open source libraries
-[web3modal](https://github.com/Web3Modal/web3modal)
-```js
-   import Web3Modal, { connectors } from "web3modal"
-   this.web3Modal = new Web3Modal({
-        network:'mainnet' ,
-        cacheProvider: true,
-        providerOptions: {
-            "custom-injected": {
-                display: {
-                logo: "https://cdn.bitkeep.vip/u_b_69b66a00-a046-11ec-a3eb-f758fa002ae8.png",
-                name: "BitKeep",
-                description: "Connect with the provider in your Browser",
-                },
-                package: connectors.injected,
-                connector: async (ProviderPackage: any, options: any) => {
-                const provider = new ProviderPackage(options)
-                return provider
-            }
-        },
-    }
-    });
-```
+if you have problems with third-party libraries that cannot be solved, you can c [Contact us](https://bitkeep.com/about#Contact_us).
 
 
 ## Tron
