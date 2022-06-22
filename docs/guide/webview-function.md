@@ -2,11 +2,6 @@
 
 BitKeep provides some public methods for Dapp to interact with the wallet. you can copy this url to the BitKeep DApp search bar, and try it. 
 
-`http://106.75.67.107:8001/demo.html` 
-#### Open Bitkeep app browser and scan
-![Open Bitkeep app browser and scan](../images/qrcode.png)
-
-[[toc]]
 
 ## isBitKeep
 

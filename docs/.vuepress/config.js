@@ -153,8 +153,7 @@ function getGuideSidebar(guide, dapp, resources) {
         'connect-wallet-for-dapp',
         'switch-network-for-dapp',
         'webview-function',
-        'apply-list-for-dapp',
-        'how-to-connect'
+        'apply-list-for-dapp'
       ],
     },
     {

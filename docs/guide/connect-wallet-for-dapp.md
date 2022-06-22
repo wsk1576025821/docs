@@ -1,86 +1,306 @@
 
 
 # Connect Wallet
-[BitKeep App and Chrome extension conneted](./how-to-connect.html)
-BitKeep supports common schemes to connect, such as Metamask / TronWeb, etc. Therefore, developers do not need to do additional compatibility. BitKeep supports universal wallet connection by default.
+This applies to bitkeep, which now supports blockchains, including EVM(Ethereum、BSC、Arbitrum、Polygon、Fantom...), TRON, Solana, Terra Arweave, IOST ...
+[Logo](https://github.com/bitkeepwallet/download) 
+[Simple demo](https://github.com/bitkeepwallet/download/tree/example)
 
-## EVM(Ethereum) Connect
 
-The Metamask protocol is a universal wallet connection scheme for Ethereum or EVM chains. BitKeep complies with the Metamask protocol by default, and will implant `window.bitkeep.ethereum` object in the webview. Developers can directly develop follow [MetaMask Documents](https://docs.metamask.io/guide/ethereum-provider.html) or [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp)
+# Integrate
+In order to facilitate special detection, the global object is attached with the ```isBitKeep``` attribute.
 
-```javascript
-window.bitkeep.ethereum = {
-    isBitKeep: true,
-    networkId: 1,
-    chainId: "0x1",
-    rpc: {},
-    request: ()=>{},
-    send: ()=>{},
-    sendAsync: ()=>{}
-}
-window.ethereum = {
-    isBitKeep: true,
-    networkId: 1,
-    chainId: "0x1",
-    rpc: {},
-    request: ()=>{},
-    send: ()=>{},
-    sendAsync: ()=>{}
-}
+<!-- ![Open Bitkeep app browser and scan](../images/connect/isBitKeep.png)(:width='300px' height="300px") -->
+<img src='../images/connect/isBitKeep.png' width='300px'/>
+
+If bitkeep is not installed, we recommend that you redirect users to [our website](https://bitkeep.com/download?type=2 )。
+
+
+
+
+## EVM 
+Ethereum, Binance Smart Chain, Avalanche-C, Fantom, Polygon, Arbitrum...
+
+
+
+[chainlist](https://chainlist.org/) 
+[json](https://chainid.network/chains.json)
+
+The test network is not supported for the time being. If there is no mainnet you are looking for, please [Contact us](https://bitkeep.com/about#Contact_us)。 to add it.
+
+#### Introduction 
+We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/dapp). You can also refer to [MetaMask Dapp](https://docs.metamask.io/guide/create-dapp.html#project-setup)[MetaMask Dapp demo](https://github.com/BboyAkers/simple-dapp-tutorial). We also support it.
+
+
+You can also use third-party libraries in conjunction with ```window.bitkeep.ethereum```,  [web3js](https://www.npmjs.com/package/web3)  [ethers](https://www.npmjs.com/package/ethers)... 
+
+
+```window.bitkeep.ethereum``` implementation and ```window.ethereum``` is the same. If you use a third-party library, just use ```window.bitkeep.ethereum``` replaced ```window.ethereum``` can be used to distinguish between BitKeep wallet and other wallets
+
+
+
+#### isInstalled
+``` js
+    const isBitKeepInstalled = window.isBitKeep && window.bitkeep.ethereum
 ```
 
-::: tip
-If the wallet cannot be connected (the `window.bitkeep.ethereum` object cannot be obtained), please delay the initialization time of web3 appropriately.
-:::
 
-## Solana Connect
 
-BitKeep webview has built-in Solana object `window.bitkeep.solana`. Developers can directly develop follow [Solona Web3 Documents](https://github.com/solana-labs/solana-web3.js) or [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/solana/dapp)
+#### Provider 
+You can use `window.bitkeep.ethereum`.
 
-```javascript
-window.bitkeep.solana = {
-    isBitKeep: true,
-    connected: true,
-    autoApprove: false,
-    publicKey: "8RwVBVHoEdfnob4doYnrNJeEsCjptBtX6Ut1Cb2TFSm5",
-    connect: ()=>{},
-    disconnect: ()=>{}.
-    on: (event, callback)=>{},
-    async signTransaction: (transaction)=>{
-    	//the "transaction" argument is Transaction from "@solana/web3.js"
-        //return signed transaction.
+``` js
+   function  getProvider(){
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false; 
+        if(!window.isBitKeep){
+            // if(!isMobile){
+            // window.open('https://chrome.google.com/webstore/detail/bitkeep-bitcoin-crypto-wa/jiidiaalihmmhddjgbnbgdfflelocpak') 
+            //     console.log("please install BitKeep")
+            // }
+            return null
+        }
+        return window.bitkeep.ethereum
     }
-}
-window.solana = {
-    isBitKeep: true,
-    connected: true,
-    autoApprove: false,
-    publicKey: "8RwVBVHoEdfnob4doYnrNJeEsCjptBtX6Ut1Cb2TFSm5",
-    connect: ()=>{},
-    disconnect: ()=>{}.
-    on: (event, callback)=>{},
-    async signTransaction: (transaction)=>{
-    	//the "transaction" argument is Transaction from "@solana/web3.js"
-        //return signed transaction.
-    }
-}
 ```
 
-## Tron Connect
+#### eth_requestAccounts(request authorization to connect) 
+``` js
+     //if used injected
+    const Provider = getProvider()
 
-BitKeep browser has built-in TronWeb object `window.tronWeb`. You can perform related operations of the TRON chain through tronWeb. Developers can directly develop follow [TronWeb Documents](https://cn.developers.tron.network/reference#tronweb-object) or [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/tron/dapp)
+    const accounts = await Provider.request({ method: 'eth_requestAccounts'});
+    const account = accounts[0];
 
 
-```javascript
-//get address
-const address = window.tronWeb.defaultAddress;
-//init a contract
-const contract = window.tronWeb.contract(ABI, ADDRESS);
-//get data from Contract
-const result = await contract.myFunction(params1, params2).call();
-//send
-const tx = await contract.withdraw(params1, params2).send();
-````
+    //if used web3
+    const accounts = await Provider.request({ method: 'eth_requestAccounts'});
+    const web3 = new Web3(Provider)
+    const [address] = await web3.eth.getAccounts(); // address
+    const chainId = await web3.eth.getChainId();  // chainId  
+
+```
+#### connected
+```js
+    const Provider = getProvider()
+    Provider.connected
+```
+#### Event  listeners
+used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
+```js
+    const Provider = getProvider()
+    Provider.removeAllListeners(); 
+    Provider.on("accountsChanged", ([address]) => {
+         alert("address changed")
+    });
+    Provider.on("chainChanged", async (chainId) => {
+          alert("chainid changed")
+    });
+```
+
+#### sendTransaction(Transfer) 
+```js
+    const Provider = getProvider()
+    const transactionParameters = {
+        nonce: '0x00', // ignored by Bitkeep
+        gasPrice: '0x09184e72a000', // customizable by user during Bitkeep confirmation.
+        gas: '0x2710', // customizable by user during Bitkeep confirmation.
+        to: '0x0000000000000000000000000000000000000000', // Required except during contract publications.
+        from: Provider.selectedAddress, // must match user's active address.
+        value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+        data:
+            '0x7f7465737432000000000000000000000000000000000000000000000000000000600057', // Optional, but used for defining smart contract creation and interaction.
+        chainId: '0x3', // Used to prevent transaction reuse across blockchains. Auto-filled by Bitkeep.
+    };
+
+    // txHash is a hex string
+    // As with any RPC call, it may throw an error
+    const txHash = await Provider.request({
+    method: 'eth_sendTransaction',
+    params: [transactionParameters],
+    });
+
+    // if used web3 
+    const accounts = await Provider.request({ method: 'eth_requestAccounts'});
+    const web3 = new Web3(Provider);  
+    const result = await web3.eth.sendTransaction({
+            from: Provider.selectedAddress,
+            to:"0x0000000000000000000000000000000000000000",
+            value: web3.utils.toWei("1", "ether"),
+    });
+
+```
+#### Using open source libraries
+if you have problems with third-party libraries that cannot be solved, you can c [Contact us](https://bitkeep.com/about#Contact_us).
+
+
+## Tron
+We provide [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/tron/dapp) and are compatible with [tronlink dapp](https://developers.tron.network/docs/dapp-integrate-with-tronlink-introduction).
+
+
+
+### isInstalled
+``` js
+    const isBitKeepInstalled = window.tronLink &&  window.isBitKeep
+```
+
+#### eth_requestAccounts(request authorization to connect) 
+```js
+    try{
+        await tronLink.request({ method: "tron_requestAccounts" });
+        const address = tronWeb.defaultAddress.base58;  
+        const balance = await tronWeb.trx.getBalance(address);
+    }catch{
+
+    }
+```
+
+#### connected
+```js
+    window.tronWeb.ready
+```
+
+#### sendTransaction(Transfer)
+```js
+
+    var tronweb = window.tronWeb
+    var tx = await tronweb.transactionBuilder.sendTrx('TW8u1VSwbXY7o7H9kC8HmCNTiSXvD69Uiw', 1000000, tronWeb.defaultAddress.base58)
+    var signedTx = await tronweb.trx.sign(tx)
+    var broastTx = await tronweb.trx.sendRawTransaction(signedTx)
+    console.log(broastTx)
+    console.log(broastTx.txid)
+
+    //Token
+    let decimal = 18
+    let Contract = await tronWeb.contract().at("TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7") //WIN
+    const decimalCall = Contract.decimals || Contract.DECIMALS;
+    if (decimalCall) {
+        decimal = await decimalCall().call()
+    }
+    let broastTx = await Contract.transfer(
+        "TW8u1VSwbXY7o7H9kC8HmCNTiSXvD69Uiw", 
+        // "0xde0b6b3a7640000"
+        tronWeb.toHex(2 * Math.pow(10, decimal))
+    ).send(
+        // {
+        //     feeLimit: 10000000
+        // }
+    )
+    console.log(broastTx)
+```
+
+
+## solana
+We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/example/example/solana/dapp), and you can also refer to [solana-web3](https://solana-labs.github.io/solana-web3.js/)
+
+
+
+#### IsInstalled
+``` js
+    const isBitKeepInstalled = window.isBitKeep && window.bitkeep.solana
+```
+
+#### Provider 
+
+``` js
+    window.bitkeep.solana 
+```
+
+#### connect(request authorization to connect)
+``` js 
+    try{
+        await  window.bitkeep.solana.connect();
+        const publicKey = await  window.bitkeep.solana.getAccount()
+        window.bitkeep.solana.publicKey.toString()  // Once the web application is connected to Bitkeep, 
+    }catch{
+        alert("connected error")
+    }
+
+```
+#### connected
+```js
+     window.bitkeep.solana.connected
+    const publicKey = await  window.bitkeep.solana.getAccount() 
+     window.bitkeep.solana.publicKey.toString() // Once the web application is connected to Bitkeep
+```
+
+#### Event listeners
+used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
+```js
+     window.bitkeep.solana.on("connect", () => console.log("connected!"))  
+```
+
+#### sendTransaction 
+You can refer to the following demo :
+[simple demo](https://github.com/bitkeepwallet/download/blob/example/example/solana/dapp/index.html) 
+[web3 demo](https://github.com/solana-labs/solana/tree/master/web3.js/examples) 
+[Token demo](https://github.com/solana-labs/solana-program-library/tree/master/token/js/examples)
+
+
+## Terra
+You can refer to the following [simple demo](https://github.com/terra-money/wallet-provider/tree/main/templates) 
+
+## WalletConnect 
+#### EVM(WebApp) 
+We also support [WalletConnect](https://docs.walletconnect.com/quick-start/dapps/client). Please refer to walletconnect documentation for details. Similarly, we provide a [simple demo](https://github.com/bitkeepwallet/download/tree/example/example/walletConnect)
+
+    npm install --save @walletconnect/client @walletconnect/qrcode-modal
+```js
+    import WalletConnect from "@walletconnect/client";
+    import QRCodeModal from "@walletconnect/qrcode-modal";
+
+    // Create a connector
+    const connector = new WalletConnect({
+        bridge: "https://bridge.walletconnect.org", // Required
+        qrcodeModal: QRCodeModal,
+    });
+
+    // Check if connection is already established
+    if (!connector.connected) {
+        // create new session
+        connector.createSession();
+    }
+
+    // Subscribe to connection events
+    connector.on("connect", (error, payload) => {
+        if (error) {
+            throw error;
+        }
+
+        // Get provided accounts and chainId
+        const { accounts, chainId } = payload.params[0];
+    });
+
+    connector.on("session_update", (error, payload) => {
+        if (error) {
+            throw error;
+        }
+
+        // Get updated accounts and chainId
+        const { accounts, chainId } = payload.params[0];
+     });
+
+    connector.on("disconnect", (error, payload) => {
+        if (error) {
+            throw error;
+        }
+
+    // Delete connector
+    });
+```
+
+#### EVM(Native App SDK)
+Please refer to the  [WalletConnect Doc](https://docs.walletconnect.com/quick-start)  and follow to find the docking documentation of your current program
+
+
+
+## Used  Open source library
+If you use open source code and need us to support push open source code, please [Contact us](https://bitkeep.com/about#Contact_us)。
+
+
+
+
+
+
+
 
 
 
