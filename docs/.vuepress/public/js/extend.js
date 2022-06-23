@@ -6,6 +6,6 @@ window.onload = function () {
         element.setAttribute("title",'The Best Decentralized Multi-chain Crypto Wallet')
     }
   });
-  window.bit_doc_verison = "1.0.0"
+  window.bit_doc_verison = "1.0.1"
 
 };
