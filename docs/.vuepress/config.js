@@ -95,6 +95,7 @@ module.exports = (_ctx) => ({
       {
         serviceWorker: false,
         updatePopup: true,
+        update:"force"
       },
     ],
     ['@vuepress/medium-zoom', true],
