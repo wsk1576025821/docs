@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "d5e519f6668858048c27f31d9e4356ad"
+    "revision": "26fb980552ef9eb37ecfc0a75f6e6689"
   },
   {
     "url": "assets/css/0.styles.00514bcc.css",
@@ -46,16 +46,16 @@ self.__precacheManifest = [
     "revision": "22fd9aa81ad2bc1360a067132feb522a"
   },
   {
-    "url": "assets/js/11.57f2aa3a.js",
-    "revision": "d410e998fa89645e7a58f6546ffb92b2"
+    "url": "assets/js/11.38bd54b5.js",
+    "revision": "9e381b28d13262c10490b4baf40c573d"
   },
   {
     "url": "assets/js/12.08ec8f9c.js",
     "revision": "732a5a92387968dd8589f018deefd20f"
   },
   {
-    "url": "assets/js/13.70982490.js",
-    "revision": "7bf7d9180ddefa5ad837d11f5575c4a7"
+    "url": "assets/js/13.904fb88c.js",
+    "revision": "48396629723f7f808f3ed1d24c68740a"
   },
   {
     "url": "assets/js/14.f512a365.js",
@@ -94,12 +94,12 @@ self.__precacheManifest = [
     "revision": "2aa63f4aa00ed05ca87907961ef399db"
   },
   {
-    "url": "assets/js/9.f9e294d4.js",
-    "revision": "ab597faea522223e46bed0f250d9e310"
+    "url": "assets/js/9.9d77cd42.js",
+    "revision": "d8068662bae59dc2cd5ec901d697f8dd"
   },
   {
-    "url": "assets/js/app.99c4b1a6.js",
-    "revision": "a58afce1f5997943d394ccce2dbc2864"
+    "url": "assets/js/app.56544c56.js",
+    "revision": "f0056b68fa54babb6eed69cd915a64e9"
   },
   {
     "url": "assets/js/vendors~docsearch.033b3a51.js",
@@ -115,35 +115,35 @@ self.__precacheManifest = [
   },
   {
     "url": "faq/index.html",
-    "revision": "705e0dedd5815ebbfec2b274d5e79dfe"
+    "revision": "e7d138bf9a3d7108a9cd89ca50b693c7"
   },
   {
     "url": "guide/apply-list-for-dapp.html",
-    "revision": "44d8b7a995e423ef243d0d7dfc4f10a3"
+    "revision": "d20fade4405f76b48cee2a83c85e87b8"
   },
   {
     "url": "guide/connect-wallet-for-dapp.html",
-    "revision": "a664e30cd2fb4ed3b550197ab1121476"
+    "revision": "860f61e54815425d7ad7d59d620b96e7"
   },
   {
     "url": "guide/index.html",
-    "revision": "7659508cdd48d07788251fc4a53cdae3"
+    "revision": "4e351d538256a717305750ed34cbe8ad"
   },
   {
     "url": "guide/resources.html",
-    "revision": "24add87e7a284ca8a47d0e90a880eca5"
+    "revision": "7f2ce0a2cb60c62cbfb9c9254b15fbea"
   },
   {
     "url": "guide/switch-network-for-dapp.html",
-    "revision": "bd7881e9ab39a086aad8c8d928f08cfe"
+    "revision": "29ddb4e4c4e29571aeaf2b43d7ea770e"
   },
   {
     "url": "guide/webview-function.html",
-    "revision": "a6187c421cac642c5fb6f57ddf061212"
+    "revision": "4a9b7f5a31e71d61afa2fa37901e1a27"
   },
   {
     "url": "js/extend.js",
-    "revision": "02587dbb8ea4ea3b294e604ffa352f4b"
+    "revision": "6ed4d2441a39b13b27eadc42ca941dd7"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});

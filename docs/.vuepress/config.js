@@ -94,7 +94,7 @@ module.exports = (_ctx) => ({
       '@vuepress/pwa',
       {
         serviceWorker: true,
-        updatePopup: true,
+        updatePopup: true ,
         update:"force"
       },
     ],
