@@ -89,13 +89,12 @@ module.exports = (_ctx) => ({
 
 
   plugins: [
-    ['@vuepress/back-to-top', true],
+    ['@vuepress/back-to-top', false],
     [
       '@vuepress/pwa',
       {
         serviceWorker: true,
         updatePopup: true ,
-        update:"force"
       },
     ],
     ['@vuepress/medium-zoom', true],
