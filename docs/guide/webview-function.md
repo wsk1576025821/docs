@@ -1,4 +1,4 @@
-# Webview Method(Mobile)
+# Webview Method(only Mobile)
 
 BitKeep provides some public methods for Dapp to interact with the wallet. you can copy this url to the BitKeep DApp search bar, and try it. 
 
