@@ -3,8 +3,19 @@ window.onload = function () {
   var linkArr = Array.prototype.slice.call(links);
   linkArr.forEach((element) => {
     if (element.href == 'https://bitkeep.com/') {
-        element.setAttribute("title",'The Best Decentralized Multi-chain Crypto Wallet')
+      element.setAttribute(
+        'title',
+        'The Best Decentralized Multi-chain Crypto Wallet'
+      );
     }
   });
-  window.bit_doc_verison = "1.0.3"
+
+  if (location.href.indexOf('how-to-connect') > -1) {
+    location.href = location.href.replace(
+      'how-to-connect',
+      'connect-wallet-for-dapp'
+    );
+  }
+
+  window.bit_doc_verison = '1.0.3';
 };

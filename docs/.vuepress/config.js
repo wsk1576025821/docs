@@ -121,8 +121,9 @@ module.exports = (_ctx) => ({
           {
             base: '/',
             alternative: '/guide/',
-          },
+          }
         ],
+       
       },
     ],
     [

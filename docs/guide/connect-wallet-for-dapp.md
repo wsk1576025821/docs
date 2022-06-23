@@ -50,14 +50,14 @@ You can use `window.bitkeep.ethereum`.
 
 ``` js
    function  getProvider(){
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false; 
-        if(!window.isBitKeep){
-            // if(!isMobile){
-            // window.open('https://chrome.google.com/webstore/detail/bitkeep-bitcoin-crypto-wa/jiidiaalihmmhddjgbnbgdfflelocpak') 
-            //     console.log("please install BitKeep")
-            // }
-            return null
-        }
+        // const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false; 
+        // if(!window.isBitKeep){
+        //     if(!isMobile){
+        //     window.open('https://bitkeep.com/download?type=0&theme=light') 
+        //         console.log("please install BitKeep")
+        //     }
+        //     return null
+        // }
         return window.bitkeep.ethereum
     }
 ```
