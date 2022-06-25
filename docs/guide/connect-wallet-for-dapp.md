@@ -2,7 +2,8 @@
 
 # Connect Wallet
 This applies to bitkeep, which now supports blockchains, including EVM(Ethereum、BSC、Arbitrum、Polygon、Fantom...), TRON, Solana, Terra Arweave, IOST ...
-[Logo](https://github.com/bitkeepwallet/download) 
+[Logo icon](https://github.com/bitkeepwallet/download/blob/main/logo-png/BitKeep_logo_circle.png) 
+[Logo-180 icon](https://github.com/bitkeepwallet/download/blob/main/logo-png/small-circle-logo180.png) 
 [Simple demo](https://github.com/bitkeepwallet/download/tree/example)
 
 
@@ -10,20 +11,32 @@ This applies to bitkeep, which now supports blockchains, including EVM(Ethereum�
 In order to facilitate special detection, the global object is attached with the ```isBitKeep``` attribute.
 
 <!-- ![Open Bitkeep app browser and scan](../images/connect/isBitKeep.png)(:width='300px' height="300px") -->
-<img src='../images/connect/isBitKeep.png' width='300px'/>
+<img src='../images/connect/isBitKeep.jpg' width='400px'/>
 
 If bitkeep is not installed, we recommend that you redirect users to [our website](https://bitkeep.com/download?type=2 )。
 
 
 
+## FAQ
+ - Multi wallet coverage problem
+   
+    <img src='../images/connect/m-wallet.jpg' width='260px'/>
+
+    Use ```window.bitkeep.ethereum```  As a provider.
+    Use ```window.bitkeep.solana```  As a provider. It will exist together with other wallets.
+    ```
+      bitkeep:  window.bitkeep.ethereum 
+      other: window.ethereum 
+
+      bitkeep:  window.bitkeep.solana 
+      other: window.solana  
+
+    ```
+
 
 ## EVM 
-Ethereum, Binance Smart Chain, Avalanche-C, Fantom, Polygon, Arbitrum...
-
-
-
-[chainlist](https://chainlist.org/) 
-[json](https://chainid.network/chains.json)
+Ethereum, Binance Smart Chain, Avalanche-C, Fantom, Polygon, Arbitrum...  
+[chainlist](https://chainlist.org/) [json](https://chainid.network/chains.json)
 
 The test network is not supported for the time being. If there is no mainnet you are looking for, please [Contact us](https://bitkeep.com/about#Contact_us)。 to add it.
 
@@ -50,15 +63,11 @@ You can use `window.bitkeep.ethereum`.
 
 ``` js
    function  getProvider(){
-        // const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? true : false; 
-        // if(!window.isBitKeep){
-        //     if(!isMobile){
-        //     window.open('https://bitkeep.com/download?type=0&theme=light') 
-        //         console.log("please install BitKeep")
-        //     }
-        //     return null
-        // }
-        return window.bitkeep.ethereum
+        const provider = window.bitkeep && window.bitkeep.ethereum
+        if(!provider){
+            return window.open('https://bitkeep.com/download?type=0&theme=light') 
+        }
+        return  provider
     }
 ```
 
@@ -95,7 +104,8 @@ used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
           alert("chainid changed")
     });
 ```
-
+#### sign
+https://github.com/MetaMask/eth-sig-util
 #### sendTransaction(Transfer) 
 ```js
     const Provider = getProvider()
@@ -201,7 +211,13 @@ We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/examp
 #### Provider 
 
 ``` js
-    window.bitkeep.solana 
+   function  getProvider(){
+        const provider = window.bitkeep && window.bitkeep.solana
+        if(!provider){
+            return window.open('https://bitkeep.com/download?type=0&theme=light') 
+        }
+        return  provider
+    }
 ```
 
 #### connect(request authorization to connect)
@@ -221,7 +237,21 @@ We provide a [Simple  demo](https://github.com/bitkeepwallet/download/tree/examp
     const publicKey = await  window.bitkeep.solana.getAccount() 
      window.bitkeep.solana.publicKey.toString() // Once the web application is connected to Bitkeep
 ```
+#### signMessage
+```js
+    //string
+    window.bitkeep.solana.signMessage("020006106e655af38ff7324bbf1d4e16b06084763269b9")
 
+    // uint8Array
+    const message = `You can use uint8array to verify`;
+    const encodedMessage = new TextEncoder().encode(message);
+    const signedMessage = await window.bitkeep.solana.signMessage(encodedMessage);
+    const nacl = require("tweetnacl")
+    const { PublicKey } = require('@solana/web3.js');
+    // nacl.sign.detached.verify(encodedMessage, signedMessage, publicKey)
+    nacl.sign.detached.verify(encodedMessage, signedMessage, new PublicKey(address).toBytes())
+    
+```    
 #### Event listeners
 used [eventemitter3](https://www.npmjs.com/package/eventemitter3)
 ```js
@@ -238,7 +268,10 @@ You can refer to the following demo :
 ## Terra
 You can refer to the following [simple demo](https://github.com/terra-money/wallet-provider/tree/main/templates) 
 
-## WalletConnect 
+## WalletConnect
+
+<img src='../images/connect/walletconnect.jpg' width='200px'/>
+
 #### EVM(WebApp) 
 We also support [WalletConnect](https://docs.walletconnect.com/quick-start/dapps/client). Please refer to walletconnect documentation for details. Similarly, we provide a [simple demo](https://github.com/bitkeepwallet/download/tree/example/example/walletConnect)
 
