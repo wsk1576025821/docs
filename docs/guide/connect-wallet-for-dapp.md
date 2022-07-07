@@ -17,22 +17,6 @@ If bitkeep is not installed, we recommend that you redirect users to [our websit
 
 
 
-## FAQ
- - Multi wallet coverage problem
-   
-    <img src='../images/connect/m-wallet.jpg' width='260px'/>
-
-    Use ```window.bitkeep.ethereum```  As a provider.
-    Use ```window.bitkeep.solana```  As a provider. It will exist together with other wallets.
-    ```
-      bitkeep:  window.bitkeep.ethereum 
-      other: window.ethereum 
-
-      bitkeep:  window.bitkeep.solana 
-      other: window.solana  
-
-    ```
-
 
 ## EVM 
 Ethereum, Binance Smart Chain, Avalanche-C, Fantom, Polygon, Arbitrum...  
@@ -327,6 +311,24 @@ Please refer to the  [WalletConnect Doc](https://docs.walletconnect.com/quick-st
 
 ## Used  Open source library
 If you use open source code and need us to support push open source code, please [Contact us](https://bitkeep.com/about#Contact_us)。
+
+
+
+## FAQ
+ - Multi wallet coverage problem
+   
+    <img src='../images/connect/m-wallet.jpg' width='260px'/>
+
+    Use ```window.bitkeep.ethereum```  As a provider.
+    Use ```window.bitkeep.solana```  As a provider. It will exist together with other wallets.
+    ```
+      bitkeep:  window.bitkeep.ethereum 
+      other: window.ethereum 
+
+      bitkeep:  window.bitkeep.solana 
+      other: window.solana  
+
+    ```
 
 
 
