@@ -7,7 +7,7 @@
     "network": {
       "chainId": 1,
       "chainName": "Ethereum",
-      "rpc": ["https://ethereum.bitkeep.vip/09044be328d4c02bd3d832b8433d97ce"],
+      "rpc": [],
       "swapGasFee": 0.01,
       "nativeCurrency": {
         "name": "Ether",
@@ -24,7 +24,7 @@
     "network": {
       "chainId": 56,
       "chainName": "BSC",
-      "rpc": ["https://bsc.bitkeep.vip/09044be328d4c02bd3d832b8433d97ce"],
+      "rpc": [],
       "swapGasFee": 0.0003,
       "nativeCurrency": {
         "name": "BNB",
@@ -40,7 +40,7 @@
     "network": {
       "chainId": "",
       "chainName": "Tron",
-      "rpc": ["https://tron.bitkeep.vip/09044be328d4c02bd3d832b8433d97ce"],
+      "rpc": [],
       "swapGasFee": 40,
       "nativeCurrency": {
         "name": "TRX",
@@ -56,7 +56,7 @@
     "network": {
       "chainId": 128,
       "chainName": "Huobi ECO",
-      "rpc": ["https://heco.bitkeep.vip/09044be328d4c02bd3d832b8433d97ce"],
+      "rpc": [],
       "swapGasFee": 0.001,
       "nativeCurrency": {
         "name": "HT",
@@ -72,7 +72,7 @@
     "network": {
       "chainId": "0x2019",
       "chainName": "KLAY",
-      "rpc": ["https://public-node-api.klaytnapi.com/v1/cypress"],
+      "rpc": [],
       "swapGasFee": 0.15,
       "nativeCurrency": {
         "name": "KLAY",
@@ -88,7 +88,7 @@
     "network": {
       "chainId": 25,
       "chainName": "Cronos",
-      "rpc": ["https://evm.cronos.org"],
+      "rpc": [],
       "swapGasFee": 2.8,
       "nativeCurrency": {
         "name": "CRO",
@@ -104,7 +104,7 @@
     "network": {
       "chainId": 10,
       "chainName": "Optimism",
-      "rpc": ["https://mainnet.optimism.io"],
+      "rpc": [],
       "swapGasFee": 0.0015,
       "nativeCurrency": {
         "name": "ETH",
@@ -120,7 +120,7 @@
     "network": {
       "chainId": 137,
       "chainName": "Polygon",
-      "rpc": ["https://matic.bitkeep.vip/09044be328d4c02bd3d832b8433d97ce"],
+      "rpc": [],
       "swapGasFee": 0.05,
       "nativeCurrency": {
         "name": "MATIC",
@@ -136,7 +136,7 @@
     "network": {
       "chainId": 1666600000,
       "chainName": "Harmony",
-      "rpc": ["https://api.harmony.one"],
+      "rpc": [],
       "swapGasFee": 0.03,
       "nativeCurrency": {
         "name": "ONE",
@@ -152,7 +152,7 @@
     "network": {
       "chainId": 66,
       "chainName": "OKX",
-      "rpc": ["https://okt.bitkeep.vip/09044be328d4c02bd3d832b8433d97ce"],
+      "rpc": [],
       "swapGasFee": 0.001,
       "nativeCurrency": {
         "name": "OKT",
@@ -168,7 +168,7 @@
     "network": {
       "chainId": 250,
       "chainName": "Fantom",
-      "rpc": ["https://ftm.bitkeep.vip/09044be328d4c02bd3d832b8433d97ce"],
+      "rpc": [],
       "swapGasFee": 0.22,
       "nativeCurrency": {
         "name": "FTM",
@@ -184,7 +184,7 @@
     "network": {
       "chainId": 321,
       "chainName": "KCC",
-      "rpc": ["https://rpc-mainnet.kcc.network"],
+      "rpc": [],
       "swapGasFee": 0.001,
       "nativeCurrency": {
         "name": "KCC",
@@ -200,7 +200,7 @@
     "network": {
       "chainId": 43114,
       "chainName": "Avalanche",
-      "rpc": ["https://api.avax.network/ext/bc/C/rpc"],
+      "rpc": [],
       "swapGasFee": 0.004,
       "nativeCurrency": {
         "name": "AVAX",
@@ -232,7 +232,7 @@
     "network": {
       "chainId": 42161,
       "chainName": "Arbitrum",
-      "rpc": ["https://arbitrum.bitkeep.vip/09044be328d4c02bd3d832b8433d97ce"],
+      "rpc": [],
       "swapGasFee": 0.0005,
       "nativeCurrency": {
         "name": "ARBITRUM",

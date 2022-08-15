@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "018d03e9e23d059ce046a59767242587"
+    "revision": "6cbb5667ec91333bb48f7b01aedd461d"
   },
   {
     "url": "assets/css/0.styles.f93fc0d5.css",
@@ -50,76 +50,72 @@ self.__precacheManifest = [
     "revision": "83621669651b9a3d4bf64d1a670ad856"
   },
   {
-    "url": "assets/img/walletconnect.b266ad99.jpg",
-    "revision": "b266ad998f6bc898235e34639f11e950"
+    "url": "assets/js/10.f264b94b.js",
+    "revision": "566a14a0d631cb4ebc66ca014bcba47e"
   },
   {
-    "url": "assets/js/10.182ae558.js",
-    "revision": "1b15ade74be90b6d6ac3561184060413"
+    "url": "assets/js/11.51155cd8.js",
+    "revision": "fe9ffb8b33ac19e23222d83be6bb5aa2"
   },
   {
-    "url": "assets/js/11.0f57b3d6.js",
-    "revision": "02347d0fc95449407d15200d6eb7493b"
+    "url": "assets/js/12.85617cda.js",
+    "revision": "245091d516dd5ec02764f3f4e81b3d1a"
   },
   {
-    "url": "assets/js/12.093a897d.js",
-    "revision": "8fa5419b3011e1c9ce49eb7fa56f68cd"
+    "url": "assets/js/13.667ce207.js",
+    "revision": "cc5b5ca49be3c76059f3b2005bfb3e9c"
   },
   {
-    "url": "assets/js/13.2835b3ce.js",
-    "revision": "c0f012a1d4bbc5b74138959406694f92"
+    "url": "assets/js/14.ff45ee07.js",
+    "revision": "136764de25c99c0c8d71f671b7f33f21"
   },
   {
-    "url": "assets/js/14.1a9227a5.js",
-    "revision": "4aeb64541a2a63021c7e977d1840a81f"
+    "url": "assets/js/15.f90a6012.js",
+    "revision": "9cf3bb8e05f8b3c777bab6b48ba0fdca"
   },
   {
-    "url": "assets/js/15.6f486b2e.js",
-    "revision": "0efb39502f1a3c8d6caf6fde6b718252"
+    "url": "assets/js/16.5dd51ab7.js",
+    "revision": "343ccd55797be78f626348ebb1173f5f"
   },
   {
-    "url": "assets/js/16.4389a980.js",
-    "revision": "7eed644371f42794364c593511abd95a"
+    "url": "assets/js/17.3b647272.js",
+    "revision": "dddf5c391e37741bc48e8e95b5a1c7da"
   },
   {
-    "url": "assets/js/17.a82cf277.js",
-    "revision": "390ebf5e039b2cc9bac3704481ecbaee"
+    "url": "assets/js/4.fc2732dd.js",
+    "revision": "ba7dfe67bfd0207ed09e906305d6176d"
   },
   {
-    "url": "assets/js/4.6fe9260f.js",
-    "revision": "48099cb06f48ceaaf933b4e4a1d099d7"
+    "url": "assets/js/5.dfdf6295.js",
+    "revision": "dd201e6dc8b21814ad5a143b3ec3ecc5"
   },
   {
-    "url": "assets/js/5.5a733cec.js",
-    "revision": "443587adf605c3c67dff3ae19127d01b"
+    "url": "assets/js/6.77a3d535.js",
+    "revision": "9dc4fdae90f03e056f74383c1cb4be84"
   },
   {
-    "url": "assets/js/6.15b369c6.js",
-    "revision": "501dcb7ed5efab60e5ce78ed0f3360dc"
+    "url": "assets/js/7.8f1b43cb.js",
+    "revision": "d76d9210af05fff843325fa0ed7e129e"
   },
   {
-    "url": "assets/js/7.7b6e24f1.js",
-    "revision": "4fa607dfe37b1c0206597cfba1bc2914"
+    "url": "assets/js/8.e1f92b90.js",
+    "revision": "ba5a6aba79fbd55ef0202242b0207036"
   },
   {
-    "url": "assets/js/8.c0f5c3ad.js",
-    "revision": "5bfec724a98934d406880075122f1576"
+    "url": "assets/js/9.97f89567.js",
+    "revision": "8f87a3e95bd674e09c4b1edf4f7750ba"
   },
   {
-    "url": "assets/js/9.fc581674.js",
-    "revision": "52f27c61f9fee0c287f2fe60b1dc3bee"
+    "url": "assets/js/app.680cd450.js",
+    "revision": "47f534500b4526dc4f6577d4aa263a6a"
   },
   {
-    "url": "assets/js/app.a215dd2c.js",
-    "revision": "dc83ef680d129ea7d6df8a61c120c9b8"
+    "url": "assets/js/vendors~docsearch.7cf4bc01.js",
+    "revision": "807a6473a0eeb74b0a0da095c4604b89"
   },
   {
-    "url": "assets/js/vendors~docsearch.008c7241.js",
-    "revision": "1b77e25d42f79fc9f6aaa72ef7b833b3"
-  },
-  {
-    "url": "assets/js/vendors~notification.6eee5875.js",
-    "revision": "1d9890f5458d59dba110b2fd4446def7"
+    "url": "assets/js/vendors~notification.858a3813.js",
+    "revision": "2ff2dd5201c28dac4441f422082cf1ab"
   },
   {
     "url": "bitkeep-icon.svg",
@@ -127,31 +123,31 @@ self.__precacheManifest = [
   },
   {
     "url": "faq/index.html",
-    "revision": "de9be2be5d990ec6000ff238bd5f7f31"
+    "revision": "b43b9d1b54fe93b6a532c2feae34099e"
   },
   {
     "url": "guide/apply-list-for-dapp.html",
-    "revision": "6844be41cd815a8bec18833ea08d8776"
+    "revision": "eed6a9a553783fd4e244592eda1b2d4c"
   },
   {
     "url": "guide/connect-wallet-for-dapp.html",
-    "revision": "df7ba7024e3f54bc0c2825134ffbce46"
+    "revision": "8e9bba76a2e9178434351aa04e91737b"
   },
   {
     "url": "guide/index.html",
-    "revision": "ac735b182c95be7efeebfe87d87e0973"
+    "revision": "6fb9a283d373ba5f5c0f05c37a30363c"
   },
   {
     "url": "guide/resources.html",
-    "revision": "122fa63ff1e4628fdfa07a7a1d097d51"
+    "revision": "4d600c8de2bdcc1f35f8e7e6f3883783"
   },
   {
     "url": "guide/switch-network-for-dapp.html",
-    "revision": "ba63d68be30f71443ddb04f62d4796f3"
+    "revision": "200ffd57c2514fb6a82dc1df7dd74242"
   },
   {
     "url": "guide/webview-function.html",
-    "revision": "669d7107ef4b01eeb74a1d26c9b86c0c"
+    "revision": "2addf04415f0f3f374913243ba2e91fa"
   },
   {
     "url": "js/extend.js",
