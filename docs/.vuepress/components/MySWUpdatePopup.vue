@@ -5,6 +5,7 @@
   >
     <div v-if="enabled" class="sw-update-popup">
       {{ message }}<br />
+
       <button @click="reload">{{ buttonText }}</button>
     </div>
   </SWUpdatePopup>
@@ -19,7 +20,6 @@ export default {
     if (this.$refs.SWUpdatePopup) {
       this.$refs.SWUpdatePopup.enabled && this.$refs.SWUpdatePopup.reload();
     }
-
     console.log('mounted',this.$refs.SWUpdatePopup.enabled);
   },
 };
