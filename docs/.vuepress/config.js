@@ -132,7 +132,8 @@ module.exports = (_ctx) => ({
       {
         useUrlFragment: false,
       },
-    ]
+    ],
+    ['vuepress-plugin-code-copy', true]
   ],
 
   extraWatchFiles: ['.vuepress/nav/en.js'],

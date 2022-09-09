@@ -3,7 +3,7 @@
 Welcome to the developer documentation for BitKeep Wallet. The purpose of this document is to explain how to build a DApp using the BitKeep Wallent.
 
 You can find the latest version of BitKeep Wallet on our  [official website](https://bitkeep.com)
-
+ 
  - [IOS Download](https://bitkeep.com/download?type=1&theme=dark)
  - [Android Download](https://bitkeep.com/download?type=0&theme=dark)
  - [Chrome Extension](https://bitkeep.com/download?type=2&theme=dark)
@@ -18,41 +18,20 @@ In order to facilitate special detection, the global object is attached with the
 
 ## EVM
 #### Introduction
-You can refer a third-party base about Web3.0 login to support TokenPocket Extension quickly, such as: [web3modal](https://github.com/WalletConnect/web3modal)[Publishing] , [wagmi-demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[Publishing]
+You can refer a third-party base about Web3.0 login to support TokenPocket Extension quickly, such as: [bitkeep-web3modal](https://github.com/bitkeepwallet/bitkeep-web3modal)[Publishing] , [wagmi-demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[Publishing]
 
 
 ```js
 
-  npm install web3modal 
-
-  import web3modal from "web3modal"
-
+  //npm install bitkeep-web3modal
+  import web3modal from "bitkeep-web3modal"
    const web3Modal = new Web3Modal({
     network: "mainnet", // optional
     cacheProvider: true, // optional
     providerOptions:{
-       'custom-bitkeep-wallet': {
-          display: {
-            logo: 'bitkeep.png',
-            name: 'Bitkeep Wallet',
-            description: 'Connect to your Bitkeep Wallet',
-          },
-          package: true,
-          options: {},
-          connector: async () => {
-            if ((window as any).bitkeep) {
-              const bitkeep = (window as any).bitkeep;
-              await bitkeep.ethereum.request({ method: 'eth_requestAccounts' });
-              return bitkeep.ethereum;
-              } else {
-              (window as any).open("https://bitkeep.com/download", "_blank");
-              throw new Error('No Bitkeep wallet found');
-            }
+        bitkeep: {  
+          package: true
         },
-       },
-        //  bitkeep: {  //Publishing
-        //     package: true
-        //  },
         walletconnect: {
           display: {
             logo: "data:image/gif;base64,INSERT_BASE64_STRING",
@@ -75,14 +54,14 @@ Quickly support bitkeep Wallet  If the Other wallet is already available.
 
     If the MetaMask Wallet  is already available.  You can replace `window.ethereum` with  `window.bitkeep.ethereum` as a provider.    
 
-#### isInstalled
+#### Detect if BitKeep is installed, an application should check for an additional isBitKeep flag 
+To verify if the browser is running Bitkeep, copy and paste the code snippet below in the developer console of your web browser:
 
 ```js
 const isBitKeepInstalled = window.isBitKeep && window.bitkeep.ethereum;
 ```
 
 #### Provider
-
 
 ```js
 function getProvider() {
@@ -101,20 +80,14 @@ function getProvider() {
   const Provider = getProvider();
 
   const accounts = await Provider.request({ method: 'eth_requestAccounts' });
-  const account = accounts[0];
+  const account = accounts[0];  
 
   //if used web3
+  import Web3 from "web3"
   const accounts = await Provider.request({ method: 'eth_requestAccounts' });
   const web3 = new Web3(Provider);
   const [address] = await web3.eth.getAccounts(); // address
   const chainId = await web3.eth.getChainId(); // chainId
-```
-
-#### connected
-
-```js
-const Provider = getProvider();
-Provider.connected;
 ```
 
 #### Event listeners

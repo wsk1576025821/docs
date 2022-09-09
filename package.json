@@ -38,5 +38,7 @@
     "vuepress-plugin-redirect": "^1.2.4",
     "vuepress-plugin-tabs": "^0.3.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vuepress-plugin-code-copy": "^1.0.6"
+  }
 }
