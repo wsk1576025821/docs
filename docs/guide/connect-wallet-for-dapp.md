@@ -16,15 +16,13 @@ In order to facilitate special detection, the global object is attached with the
 
 <img src='../images/connect/isBitKeep.jpg' width='400px'/>
 
-## Quickly support bitkeep Wallet
+**Quickly support bitkeep Wallet If the Other wallet is already available.**
 
-If the Other wallet is already available.
-
-- MetaMask
+- `MetaMask`
 
   If the MetaMask Wallet is already available. You can replace `window.ethereum` with `window.bitkeep.ethereum` as a provider
 
-- window.solana
+- `window.solana`
 
   If the solana Wallet is already available. You can replace `window.solana` with `window.bitkeep.solana` as a provider
 
