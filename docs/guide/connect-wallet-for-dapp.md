@@ -71,7 +71,9 @@ reviewing the snippet in the [eth-requestaccounts](#eth-requestaccounts) to cont
 
 The provider API is all you need to create a full-featured web3 application.
 
-You can refer a third-party base about Web3.0 login to support Bitkeep Wallet quickly, such as: [bitkeep-web3modal](https://github.com/bitkeepwallet/bitkeep-web3modal)[Publishing] , [wagmi-demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[Publishing]
+You can refer a third-party base about Web3.0 login to support Bitkeep Wallet quickly, such as: [bitkeep-web3modal](https://github.com/bitkeepwallet/bitkeep-web3modal)[Publishing] , [wagmi-demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[Publishing].
+
+We provide a [Simple demo](https://github.com/bitkeepwallet/download/blob/example/example/eth/dapp/index.html). You can also use third-party libraries in conjunction with `window.bitkeep.ethereum`, [web3js](https://www.npmjs.com/package/web3) [ethers](https://www.npmjs.com/package/ethers)...
 
 ```js
 //npm install bitkeep-web3modal
@@ -98,7 +100,7 @@ const web3Modal = new Web3Modal({
 });
 ```
 
-We provide a [Simple demo](https://github.com/bitkeepwallet/download/blob/example/example/eth/dapp/index.html). You can also use third-party libraries in conjunction with `window.bitkeep.ethereum`, [web3js](https://www.npmjs.com/package/web3) [ethers](https://www.npmjs.com/package/ethers)...
+
 
 ### Detect if BitKeep is installed
 
