@@ -71,9 +71,11 @@ reviewing the snippet in the [eth-requestaccounts](#eth-requestaccounts) to cont
 
 The provider API is all you need to create a full-featured web3 application.
 
-You can refer a third-party base about Web3.0 login to support Bitkeep Wallet quickly, such as: [bitkeep-web3modal](https://github.com/bitkeepwallet/web3modal)[Publishing] , [wagmi-demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[Publishing].
+You can refer a third-party base about Web3.0 login to support Bitkeep Wallet quickly, such as: [bitkeep-web3modal](https://www.npmjs.com/package/bitkeep-web3modal)[Publishing], [wagmi-demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[Publishing].
 
 We provide a [Simple demo](https://github.com/bitkeepwallet/download/blob/example/example/eth/dapp/index.html). You can also use third-party libraries in conjunction with `window.bitkeep.ethereum`, [web3js](https://www.npmjs.com/package/web3) [ethers](https://www.npmjs.com/package/ethers)...
+
+
 
 ```js
 //npm install bitkeep-web3modal
@@ -98,6 +100,7 @@ const web3Modal = new Web3Modal({
     },
   }, // required
 });
+
 ```
 
 
@@ -825,3 +828,9 @@ Quickly support bitkeep Wallet If the Other wallet is already available.
 2. The test network is not supported for the time being.
 
    If there is no mainnet you are looking for, please [Contact us](https://bitkeep.com/about#Contact_us)。 to add it.
+
+3. Using the npm package
+
+  - [web3modal](https://www.npmjs.com/package/web3modal) 
+      - [issues/574](https://github.com/WalletConnect/web3modal/issues/574)
+      - [bitkeep-web3modal](#ethereum-provider-api-evm). Multiple wallets can exist at the same time
