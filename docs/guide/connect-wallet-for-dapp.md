@@ -71,7 +71,7 @@ reviewing the snippet in the [eth-requestaccounts](#eth-requestaccounts) to cont
 
 The provider API is all you need to create a full-featured web3 application.
 
-You can refer a third-party base about Web3.0 login to support Bitkeep Wallet quickly, such as: [bitkeep-web3modal](https://github.com/bitkeepwallet/bitkeep-web3modal)[Publishing] , [wagmi-demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[Publishing].
+You can refer a third-party base about Web3.0 login to support Bitkeep Wallet quickly, such as: [bitkeep-web3modal](https://github.com/bitkeepwallet/web3modal)[Publishing] , [wagmi-demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[Publishing].
 
 We provide a [Simple demo](https://github.com/bitkeepwallet/download/blob/example/example/eth/dapp/index.html). You can also use third-party libraries in conjunction with `window.bitkeep.ethereum`, [web3js](https://www.npmjs.com/package/web3) [ethers](https://www.npmjs.com/package/ethers)...
 
@@ -127,8 +127,8 @@ function getProvider() {
 These are the IDs of the Ethereum chains that BitKeep supports by default. Consult [chainid.network](https://chainlist.org/zh)for more.
 
 | Hex        | Decimal    | Network          | Hex        | Decimal    | Network          |
-| ---------- | ---------- | ---------------- | ---------- | ---------- | ---------------- | --- | --- | -------- |
-| 0x1        | 1          | Ethereum         | 0x6        | 6          | Ethereum Fair    | 0xa | 10  | Optimism |
+| ---------- | ---------- | ---------------- | ---------- | ---------- | ---------------- |
+| 0x1        | 1          | Ethereum         | 0xa        | 10         | Optimism         |
 | 0x18       | 24         | KardiaChain      | 0x19       | 25         | Cronos           |
 | 0x38       | 56         | BNB Chain        | 0x39       | 57         | Syscoin          |
 | 0x3d       | 61         | Ethereum Classic | 0x42       | 66         | OKX Chain        |
@@ -150,8 +150,7 @@ These are the IDs of the Ethereum chains that BitKeep supports by default. Consu
 | 0xa86a     | 43114      | AVAX-C           | 0x116e2    | 71394      | Nervos CKB EVM   |
 | 0x335f9    | 210425     | PlatON           | 0x3e900    | 256256     | Caduceus         |
 | 0xa3488    | 668808     | ASM              | 0x4e454152 | 1313161554 | Aurora           |
-| 0x63564c40 | 1666600000 | Harmony          | --         | ---        | --               |
-
+| 0x63564c40 | 1666600000 | Harmony          |            |            |                  | 
 ### isConnected()
 
 > Note that this method has nothing to do with the user's accounts.
