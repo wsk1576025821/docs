@@ -4,9 +4,9 @@ Welcome to the developer documentation for BitKeep Wallet. The purpose of this d
 
 You can find the latest version of BitKeep Wallet on our [official website](https://bitkeep.com)
 
-- [IOS Download](https://bitkeep.com/download?type=1&theme=dark)
-- [Android Download](https://bitkeep.com/download?type=0&theme=dark)
-- [Chrome Extension](https://bitkeep.com/download?type=2&theme=dark)
+- [IOS Download](https://bitkeep.com/download?type=1)
+- [Android Download](https://bitkeep.com/download?type=0)
+- [Chrome Extension](https://bitkeep.com/download?type=2)
 
 # Integrate
 
@@ -124,7 +124,8 @@ const isBitKeepInstalled = window.bitkeep && window.bitkeep.ethereum
 function getProvider() {
   const provider = window.bitkeep && window.bitkeep.ethereum;
   if (!provider) {
-    return window.open('https://bitkeep.com/download?type=2');
+    window.open('https://bitkeep.com/download?type=2');
+    throw "Please go to our official website to download!!"
   }
   return provider;
 }
