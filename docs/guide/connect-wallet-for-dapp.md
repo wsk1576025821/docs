@@ -16,10 +16,11 @@ In order to facilitate special detection, the global object is attached with the
 
 <img src='../images/connect/isBitKeep.jpg' width='400px'/>
 
-#### Quickly support bitkeep Wallet If the Other wallet is already available.
-
+#### Quickly support bitkeep Wallet 
+If the Other wallet is already available.
 - `MetaMask`
->  If the MetaMask Wallet is already available. You can use the `window.bitkeep.ethereum`  as a  provider, which is the same as `window.ethereum`.
+
+>  If the MetaMask Wallet is already available. You can use the `window.bitkeep.ethereum`  as a  provider, which is the same as `window.ethereum` || `web3.currentProvider`.
 
 - `window.solana` | `window.phantom`
 
@@ -64,9 +65,9 @@ BitKeep injects a global API into websites visited by its users at `window?.bitk
 
 For any non-trivial Ethereum web application — a.k.a. dapp, web3 site etc. — to work, you will have to:
 
-- Detect the Ethereum provider (`window?.bitkeep?.ethereum`)
-- Detect which Ethereum network the user is connected to
-- Get the user's Ethereum account(s)
+1. Detect the Ethereum provider (`window?.bitkeep?.ethereum`)
+2.  Detect which Ethereum network the user is connected to
+3. Get the user's Ethereum account(s)
 
 reviewing the snippet in the [eth-requestaccounts](#eth-requestaccounts) to content
 
@@ -113,6 +114,8 @@ To verify if the browser is running Bitkeep, copy and paste the code snippet bel
 
 ```js
 const isBitKeepInstalled = window.isBitKeep && !!window.bitkeep.ethereum;
+ //or
+const isBitKeepInstalled = window.bitkeep && window.bitkeep.ethereum
 ```
 
 ### Provider
@@ -121,7 +124,7 @@ const isBitKeepInstalled = window.isBitKeep && !!window.bitkeep.ethereum;
 function getProvider() {
   const provider = window.bitkeep && window.bitkeep.ethereum;
   if (!provider) {
-    return window.open('https://bitkeep.com/download?type=0&theme=light');
+    return window.open('https://bitkeep.com/download?type=2');
   }
   return provider;
 }
@@ -211,7 +214,7 @@ function connect() {
 //if used injected
 const accounts = await Provider.request({ method: 'eth_requestAccounts' });
 
-handleAccountsChainChanged(); // updated address or chainID
+handleAccountsChainChanged(); // updated address or chainID,refer to accountsChanged/chainChanged(events)
 
 const [address] = await Provider.request({ method: 'eth_accounts' }); // [0x1e805A9aB0FB007B4b9D44d598C6404cE292F20D]
 const chainId = await Provider.request({ method: 'eth_chainId' }); // 0x1
@@ -223,7 +226,7 @@ const accounts = await Provider.request({ method: 'eth_requestAccounts' });
 
 const web3 = new Web3(Provider);
 
-handleAccountsChainChanged(); // updated address or chainID
+handleAccountsChainChanged(); // updated address or chainID, refer to accountsChanged/chainChanged(events)
 
 const accounts = await web3.eth.getAccounts(); // [0x1e805A9aB0FB007B4b9D44d598C6404cE292F20D]
 const chainId = await web3.eth.getChainId(); // 0x1
@@ -628,7 +631,8 @@ const isBitKeepInstalled = window.isBitKeep && window.bitkeep.solana;
 function getProvider() {
   const provider = window.bitkeep && window.bitkeep.solana;
   if (!provider) {
-    return window.open('https://bitkeep.com/download?type=0&theme=light');
+    window.open('https://bitkeep.com/download?type=2');
+    throw  `Please guide users to download from our official website`
   }
   return provider;
 }
@@ -815,21 +819,13 @@ https://github.com/bitkeepwallet/web3-react
 
 1. Multi wallet coverage problem
 
-   <img src='../images/connect/m-wallet.jpg' width='260px'/>
+  - `MetaMask`
 
-Quickly support bitkeep Wallet If the Other wallet is already available.
+  >  If the MetaMask Wallet is already available. You can use the `window.bitkeep.ethereum`  as a  provider, which is the same as `window.ethereum` || `web3.currentProvider`.
 
-- MetaMask
+  - `window.solana` | `window.phantom`
 
-  If the MetaMask Wallet is already available. You can replace `window.ethereum` with `window.bitkeep.ethereum` As a provider.
-
-- MathWallet
-
-  If the MathWallet Wallet is already available. You can replace `window.solana` with `window.bitkeep.solana` As a provider.
-
-2. The test network is not supported for the time being.
-
-   If there is no mainnet you are looking for, please [Contact us](https://bitkeep.com/about#Contact_us)。 to add it.
+  >  If the solana Wallet is already available. You can use the `window.bitkeep.solana`  as a  provider, which is the same as `window.solana` and `window.phantom`.
 
 3. Using the npm package
 
