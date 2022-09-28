@@ -65,6 +65,7 @@ module.exports = (_ctx) => ({
     editLinks: true,
     logo: '/bitkeep-icon.svg',
     smoothScroll: true,
+    sidebarDepth:4,
     algolia: {
       apiKey: process.env.ALGOLIA_API_KEY,
       indexName: process.env.ALGOLIA_INDEX_NAME,
@@ -137,6 +138,9 @@ module.exports = (_ctx) => ({
   ],
 
   extraWatchFiles: ['.vuepress/nav/en.js'],
+  markdown:{
+    lineNumbers:true
+  }
 
 });
 
@@ -156,7 +160,8 @@ function getGuideSidebar(guide, dapp, resources) {
         'connect-wallet-for-dapp',
         'switch-network-for-dapp',
         'webview-function',
-        'apply-list-for-dapp'
+        'apply-list-for-dapp',
+        "faq"
       ],
     },
     {

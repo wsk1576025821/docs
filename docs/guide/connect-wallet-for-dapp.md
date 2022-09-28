@@ -12,12 +12,14 @@ You can find the latest version of BitKeep Wallet on our [official website](http
 
 Once the BitKeep is installed and running (make sure to backup your Secret Recovery Phrase), you should find that the new browser tab `window.bitkeep` has an available object in the developer console. This is how your website interacts with BikKeep Wallet. This API allows websites to request users' `Ethereum Solana Tron...` accounts, read data from blockchains the user is connected to, and suggest that the user sign messages and transactions.
 
-In order to facilitate special detection, the global object is attached with the `isBitKeep` attribute.
+In order to facilitate special detection, the global object is attached with the `isBitKeep` `bitkeep` attribute.
 
 <img src='../images/connect/isBitKeep.jpg' width='400px'/>
 
-#### Quickly support bitkeep Wallet 
-If the Other wallet is already available.
+## Quickly support bitkeep Wallet 
+
+If the Other wallet is already available. [FAQs about BitKeep Chrome Extension](/faq.html#faqs-about-bitkeep-chrome-extension)
+
 - `MetaMask`
 
 >  If the MetaMask Wallet is already available. You can use the `window.bitkeep.ethereum`  as a  provider, which is the same as `window.ethereum` || `web3.currentProvider`.
@@ -29,14 +31,14 @@ If the Other wallet is already available.
 
 - Wallet Supported by bitkeep
 
-  | default Global Object        | BitKeep Global Object    | support        |
-  | ---------------------------- | ------------------------ | -------------  |
-  | window.ethereum              | window.bitkeep.ethereum  |  EVM(MetaMask) |
-  | window.solana/window.phantom | window.bitkeep.solana    |  Solana        |
-  | window.tronLink              | window.tronLink          |  Tron          |
-  | window.visionWeb             | window.bitkeep.visionWeb |  Vsision       |
-  | window.IWalletJS             | window.bitkeep.IWalletJS |  Iost          |
-  | window.arweaveWallet         | window.bitkeep.arweave   |  Arweave       |
+  | BitKeep Global Object    | support chain  |
+  | ------------------------ | -------------  |
+  | window.bitkeep.ethereum  |  EVM(MetaMask) |
+  | window.bitkeep.solana    |  Solana        |
+  | window.tronLink          |  Tron          |
+  | window.bitkeep.visionWeb |  Vsision       |
+  | window.bitkeep.IWalletJS |  Iost          |
+  | window.bitkeep.arweave   |  Arweave       |
 
 ## Ethereum Provider API (EVM)
 
@@ -59,7 +61,6 @@ BitKeep injects a global API into websites visited by its users at `window?.bitk
   - [accountsChanged/chainChanged](#event-listeners)
 - [Signing Data](#signing-data)
 - [Errors](#errors)
-- [Refer to table-of-contents](https://docs.metamask.io/guide/ethereum-provider.html#table-of-contents)
 
 ### Basic Usage
 
@@ -75,7 +76,7 @@ The provider API is all you need to create a full-featured web3 application.
 
 You can refer a third-party base about Web3.0 login to support Bitkeep Wallet quickly, such as: [bitkeep-web3modal](https://www.npmjs.com/package/bitkeep-web3modal)[Publishing], [wagmi-demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[Publishing].
 
-We provide a [Simple demo](https://github.com/bitkeepwallet/download/blob/example/example/eth/dapp/index.html). You can also use third-party libraries in conjunction with `window.bitkeep.ethereum`, [web3js](https://www.npmjs.com/package/web3) [ethers](https://www.npmjs.com/package/ethers)...
+We provide a [test-dapp](https://github.com/bitkeepwallet/example/tree/master/evm-dapp-demo/test-dapp) [Simple demo](https://github.com/bitkeepwallet/download/blob/example/example/eth/dapp/index.html). You can also use third-party libraries in conjunction with `window.bitkeep.ethereum`, [web3js](https://www.npmjs.com/package/web3) [ethers](https://www.npmjs.com/package/ethers)...
 
 
 
@@ -816,20 +817,3 @@ If you use open source code and need us to support push open source code, please
 
 https://github.com/bitkeepwallet/web3-react
 
-## FAQ
-
-1. Multi wallet coverage problem
-
-  - `MetaMask`
-
-  >  If the MetaMask Wallet is already available. You can use the `window.bitkeep.ethereum`  as a  provider, which is the same as `window.ethereum` || `web3.currentProvider`.
-
-  - `window.solana` | `window.phantom`
-
-  >  If the solana Wallet is already available. You can use the `window.bitkeep.solana`  as a  provider, which is the same as `window.solana` and `window.phantom`.
-
-3. Using the npm package
-
-  - [web3modal](https://www.npmjs.com/package/web3modal) 
-    1. [issues/574](https://github.com/WalletConnect/web3modal/issues/574)
-    2. [bitkeep-web3modal](#ethereum-provider-api-evm). Multiple wallets can exist at the same time
