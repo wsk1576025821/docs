@@ -1,9 +1,9 @@
 # FAQs 
 
 ## FAQs about BitKeep Chrome Extension
-
-> Please always use `window.bitkeep.ethereum` as the constant provider when connecting to BitKeep Wallet.
-
+::: tip
+Please always use `window.bitkeep.ethereum` as the constant provider when connecting to BitKeep Wallet.
+:::
 ### 1.   If it fails to detect the window?.bitkeep?.ethereum program
 
 If it fails to detect the window?.bitkeep?.ethereum program,  the developer may guide the user to go to [bitkeep.com to download the extension](https://bitkeep.com/)
@@ -23,12 +23,16 @@ function getProvider() {
 ### 2. Overwriting and other conflicts 
 
 Many DApps use `window.ethereum` when connecting to `BitKeep Chrome Extension`, which causes overwriting and other conflicts, making users confused. Solution:
-> Please use `window.bitkeep.ethereum` to connect to `BitKeep Chrome Extension`, it shares the same features as `web3.currentProvider` `window.ethereum program`. 
-> Please refer to the following sample code for more than one wallet
+::: tip
+Please use `window.bitkeep.ethereum` to connect to `BitKeep Chrome Extension`, it shares the same features as `web3.currentProvider` `window.ethereum program`. 
+Please refer to the following sample code for more than one wallet
+:::
 
 ### 3. Address conflicts when switching network
 
-> Please clear the current wallet listening event before switching network.
+::: tip
+Please clear the current wallet listening event before switching network.
+::: 
 
 For instance:
 
@@ -162,7 +166,9 @@ For instance:
 
 ### 4. Difficulties in using third-party npm packages to connect
 
-> When you are using a third-party npm package, please use `window.bitkeep.ethereum` as the provider.
+::: tip
+ When you are using a third-party npm package, please use `window.bitkeep.ethereum` as the provider.
+::: 
 
  - #### [web3modal](https://www.npmjs.com/package/web3modal)
 
@@ -175,8 +181,8 @@ For instance:
     
 
 ```javascript
-    import web3modal from 'bitkeep-web3modal';
-    const web3Modal = new Web3Modal({
+import web3modal from 'bitkeep-web3modal';
+const web3Modal = new Web3Modal({
     network: 'mainnet', // optional
     cacheProvider: true, // optional
     providerOptions: {
@@ -195,13 +201,25 @@ For instance:
         },
         },
     }, // required
-    });
+});
 ```
 - #### [wagmi](https://www.npmjs.com/package/wagmi)
 
 The next version of the package will support BitKeep but it is yet to be released. For quick support, please refer to the [demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[wagmi-bitkeep-react](https://github.com/bitkeepwallet/example/tree/master/evm-dapp-demo/wagmi-bitkeep-react) we provide.
 
 - #### [ethers.js](https://www.npmjs.com/package/ethers)
-> ethers.js mounts the `_ethers` object in a window by default. It’s not recommended that you use `window. _ethers`
->BitKeep also injects the `_ether`s object by default to avoid conflicts caused by loading sequence.
+
+::: tip
+ethers.js mounts the `_ethers` object in a window by default. It’s not recommended that you use `window. _ethers`
+BitKeep also injects the `_ether`s object by default to avoid conflicts caused by loading sequence.
 Refer to the following way to import and use.
+:::
+
+```js
+//import
+import ethers from "ethers"
+const ethers = rquire("ethers")
+//cdn
+window.ethers
+
+```
