@@ -68,7 +68,7 @@ For instance:
       <button id="eth_signTypedData_v4">eth_signTypedData_v4</button>
     </div>
     <script>
-      // 默认
+    
       let bitKeepBtn = document.querySelector("#bitKeepConnect"),
         injectedBtn = document.querySelector("#injectedConnect"),
         ethSignTypedDataV4Btn = document.querySelector("#eth_signTypedData_v4"),
@@ -135,7 +135,7 @@ For instance:
         localStorage.setItem("injected", type);
       }
 
-      //链接授权
+      //connect
       async function bitKeepBtnClick() {
         await connect("bitkeep");
         injectedBtn.style.backgroundColor = "transparent";
