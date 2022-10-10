@@ -14,4 +14,4 @@ jobs:
         TARGET_REPO: hex-ci/bitkeep-docs
         TARGET_BRANCH: docs
         BUILD_SCRIPT: yarn && yarn build
-        BUILD_DIR: blog/.vuepress/dist/
+        BUILD_DIR: docs/.vuepress/dist/
