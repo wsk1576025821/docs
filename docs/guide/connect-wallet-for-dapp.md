@@ -61,7 +61,6 @@ BitKeep injects a global API into websites visited by its users at `window?.bitk
   - [accountsChanged/chainChanged](#event-listeners)
 - [Signing Data](#signing-data)
 - [Errors](#errors)
-
 ### Basic Usage
 
 For any non-trivial Ethereum web application — a.k.a. dapp, web3 site etc. — to work, you will have to:
@@ -548,7 +547,6 @@ const result = await web3.eth.sendTransaction({
   value: web3.utils.toWei('1', 'ether'),
 });
 ```
-
 ## Tron
 
 We provide [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/tron/dapp) and are compatible with [tronlink dapp](https://developers.tron.network/docs/dapp-integrate-with-tronlink-introduction).

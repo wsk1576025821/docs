@@ -60,7 +60,7 @@ module.exports = (_ctx) => ({
     editLinks: true,
     logo: '/bitkeep-icon.svg',
     smoothScroll: true,
-    sidebarDepth:4,
+    sidebarDepth:5,
     algolia: {
       apiKey: process.env.ALGOLIA_API_KEY,
       indexName: process.env.ALGOLIA_INDEX_NAME,
@@ -152,11 +152,23 @@ function getGuideSidebar(guide, dapp, resources) {
       title: dapp,
       collapsable: false,
       children: [
-        'connect-wallet-for-dapp',
+        {
+          title: "Connect Wallet",
+          children:[
+            "wallet/introduction",
+            "wallet/quickly",
+            "wallet/ethereum",
+            "wallet/tron",
+            "wallet/solana",
+            "wallet/walletconnet",
+            "wallet/bitkeep"
+          ]
+        },
+        // 'connect-wallet-for-dapp',
         'switch-network-for-dapp',
         'webview-function',
         'apply-list-for-dapp',
-        "faq"
+        "faq" 
       ],
     },
     {
