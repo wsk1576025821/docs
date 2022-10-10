@@ -90,7 +90,7 @@ module.exports = (_ctx) => ({
     [
       '@vuepress/pwa',
       {
-        serviceWorker: true,
+        serviceWorker: false,
         popupComponent: 'MySWUpdatePopup',
         updatePopup: true ,
       },
