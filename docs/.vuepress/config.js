@@ -1,6 +1,7 @@
 module.exports = (_ctx) => ({
   sourceDir: 'docs',
   dest: 'docs/dist',
+  base: '/bitkeep-docs/',
 
   locales: {
     '/': {
