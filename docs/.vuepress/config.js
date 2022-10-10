@@ -37,14 +37,8 @@ module.exports = (_ctx) => ({
         rel: 'shortcut icon',
         href: '/bitkeep-icon.svg',
         color: '#3eaf7c',
+        type: 'image/x-icon'
       },
-      'link',
-      {
-        rel: 'shortcut icon',
-        href: '/favicon.ico',
-        color: '#3eaf7c',
-        type:"image/x-icon"
-      }
     ],
     [
       'meta',
@@ -62,6 +56,7 @@ module.exports = (_ctx) => ({
   themeConfig: {
     repo: 'bitkeepwallet/docs',
     docsDir: 'docs',
+    docsBranch: 'main',
     editLinks: true,
     logo: '/bitkeep-icon.svg',
     smoothScroll: true,
