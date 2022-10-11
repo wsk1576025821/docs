@@ -2,7 +2,8 @@
 
 To use BitKeep Wallet with your dApp, your users must first install the BitKeep Wallet Chrome extension in their browser. BitKeep Wallet injects an `bitkeep.aptos` object into the [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) of any web app the user visits.
 
-## IsInstalled
+
+## Installed or not
 
 To check if the user has installed BitKeep Wallet, perform the below check:
 
@@ -10,7 +11,7 @@ To check if the user has installed BitKeep Wallet, perform the below check:
 const isBitKeepInstalled = window.bitkeep && window.bitkeep.aptos;
 ```
 
-## Detect the Aptos provider
+## Detecting the Aptos provider
 
 If BitKeep Wallet is not installed, you can prompt the user to first install BitKeep Wallet and provide the below installation instructions. For example, see below:
 
@@ -19,7 +20,7 @@ function getAptosWallet() {
   const provider = window.bitkeep && window.bitkeep.aptos;
   if (!provider) {
     window.open('https://bitkeep.com/download?type=2');
-    throw 'Please go to our official website to download!!';
+    throw 'Please go to  https://bitkeep.com/download?type=2  to download!!';
   }
   return provider;
 }
@@ -31,7 +32,7 @@ After confirming that the web app has the `bitkeep.aptos` object, we can connect
 
 When you call `wallet.connect()`, it prompts the user to allow your web app to make additional calls to BitKeep Wallet, and obtains from the user basic information such as the address and public key.
 
-::: tip
+::: tip Note:
 After the user has approved the connnection for the first time, the web app's domain will be remembered for the future sessions.
 :::
 
@@ -61,7 +62,7 @@ BitKeep Wallet API handles the transactions in two ways:
 
 See the below examples for both the options.
 
-:::tip
+:::tip Note:
 For more on Aptos transactions, see the
 [Aptos SDKs](https://aptos.dev/sdks/index/) and [Transactions guide from Aptos](https://aptos.dev/guides/creating-a-signed-transaction/).
 :::
@@ -190,14 +191,21 @@ try {
 
 ### onNetworkChange() and network()
 
-A dApp may want to make sure a user is on the right network. In this case, you will need to check what network the wallet is using.
+A DApp may want to make sure a user is on the right network. In this case, you will need to check what network the wallet is using.
+ 
+::: warning network
+  We support network：
+    `Testnet` | `Devnet`
+
+  We may support the `Mainnet` instead of the `Testnet` after it goes live
+:::
+
 Default networks provided by the BitKeep wallet:
 
 ```ts
 // default networks in the wallet
 enum Network {
   Testnet = 'Testnet',
-  Mainnet = 'Mainnet',
   Devnet = 'Devnet',
 }
 
