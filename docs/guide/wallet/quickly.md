@@ -38,6 +38,11 @@ MetaMaskProvider.on('chainChanged', async (chainId) => {
   If the solana Wallet is already available. You can use the `window.bitkeep.solana` as a provider, which is the same as `window.solana` and `window.phantom`.  
   :::
 
+- `window.aptos`
+  ::: tip
+  If the aptos Wallet is already available. You can use the `window.bitkeep.aptos` as a provider, which is the same as `window.aptos`.
+  :::
+
 - Wallet Supported by bitkeep
 
   | BitKeep Global Object    | support chain |
@@ -48,3 +53,4 @@ MetaMaskProvider.on('chainChanged', async (chainId) => {
   | window.bitkeep.visionWeb | Vsision       |
   | window.bitkeep.IWalletJS | Iost          |
   | window.bitkeep.arweave   | Arweave       |
+  | window.bitkeep.aptos     | Aptos       |

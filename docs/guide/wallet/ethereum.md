@@ -19,7 +19,7 @@ function getProvider() {
 For any non-trivial Ethereum web application — a.k.a. dapp, web3 site etc. — to work, you will have to:
 
   1. Detect the Ethereum provider (`window?.bitkeep?.ethereum`)
-  2.  Detect which Ethereum network the user is connected to
+  2. Detect which Ethereum network the user is connected to
   3. Get the user's Ethereum account(s)
 
 You can refer to [eth-requestaccounts](#eth-requestaccounts) or [address-conflicts-when-switching-network](/faq.html#_3-address-conflicts-when-switching-network) code snippet 
@@ -462,7 +462,7 @@ We strongly recommend reloading the page on chain changes, unless you have good 
   You can refer to  docs
   - [signing-data-with-metamask](https://docs.metamask.io/guide/signing-data.html#signing-data-with-metamask)
   - [eth-sig-util](https://github.com/MetaMask/eth-sig-util).
-  - [demo](https://github.com/MetaMask/test-dapp)
+  - [demo](https://github.com/bitkeepwallet/example/tree/master/evm-dapp-demo/test-dapp)
 
 ## Errors
 

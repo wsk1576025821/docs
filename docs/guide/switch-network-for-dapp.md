@@ -13,7 +13,7 @@ Add the parameter `_needChain=Main Chain Coin` to the URL, and the BitKeep brows
 
 To use this, the page need to be refreshed.
 
-## Function Call
+<!-- ## Function Call
 
 use `wallet_switchEthereumChain/wallet_addEthereumChain`
 
@@ -21,4 +21,4 @@ BitKeep has integrated the above two methods of Metamask, and you can switch bet
 
 ::: tip
 There are two ways to determine whether it is in the BitKeep browser: whether the userAgent contains BitKeep, or window.isBitKeep
-:::
+::: -->
