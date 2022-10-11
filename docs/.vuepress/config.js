@@ -120,7 +120,7 @@ module.exports = (_ctx) => ({
             alternative: '/guide/',
           }
         ],
-       
+
       },
     ],
     [
@@ -155,7 +155,7 @@ function getGuideSidebar(guide, dapp, resources) {
         // {
         //   title: "Connect Wallet",
         //   children:[
-           
+
         //   ]
         // },
         "wallet/introduction",
@@ -170,7 +170,7 @@ function getGuideSidebar(guide, dapp, resources) {
         'switch-network-for-dapp',
         'webview-function',
         // 'apply-list-for-dapp',
-        "faq" 
+        "faq"
       ],
     },
     {
