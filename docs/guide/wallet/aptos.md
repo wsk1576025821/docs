@@ -214,7 +214,7 @@ let network = await window.bitkeep.aptos.network();
 
 // event listener for network changing
 window.bitkeep.aptos.onNetworkChange((newNetwork) => {
-  network = newNetwork;
+  network = newNetwork; // { networkName: 'Testnet' }
 });
 ```
 
