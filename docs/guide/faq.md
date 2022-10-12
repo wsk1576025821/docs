@@ -6,7 +6,7 @@ Please always use `window.bitkeep.ethereum` as the constant provider when connec
 :::
 ### 1.   If it fails to detect the window?.bitkeep?.ethereum program
 
-If it fails to detect the window?.bitkeep?.ethereum program,  the developer may guide the user to go to [bitkeep.com to download the extension](https://bitkeep.com/)
+If it fails to detect the window?.bitkeep?.ethereum program,  the developer may guide the user to go to [bitkeep.com to download the extension](https://bitkeep.com/en/download?type=2)
     
 For instance:
 ```TypeScript{2}
