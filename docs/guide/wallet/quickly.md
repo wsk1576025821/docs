@@ -1,4 +1,4 @@
-# Quickly support bitkeep Wallet
+# Quickly support BitKeep Wallet
 
 If the Other wallet is already available.
 [FAQs about BitKeep Chrome Extension](/faq.html#faqs-about-bitkeep-chrome-extension)
