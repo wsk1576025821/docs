@@ -1,6 +1,6 @@
 # bitkeep swap
 
-::: tip
+::: tip Note
 Only BitKeep Chrome extension is supported for the time being
 If you send an unsupported mainnet, an error will be prompted
 :::
@@ -12,7 +12,7 @@ If you send an unsupported mainnet, an error will be prompted
 
   ```javascript
   window.bitkeep.navigateTo('swap', {
-      chain: "eth"
+      chain: "eth",
       fromCoin: {
           chain: 'eth',
           chainName: 'Ethereum',
@@ -25,7 +25,7 @@ If you send an unsupported mainnet, an error will be prompted
           chainName: 'Ethereum',
           icon: 'https://cdn.bitkeep.vip/u_b_bae388c0-9afd-11ec-aac8-bf8a172584ab.png',
           symbol: 'ETH',
-      },
+      }
   });
 
   ```

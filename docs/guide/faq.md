@@ -1,7 +1,7 @@
 # FAQs 
 
 ## FAQs about BitKeep Chrome Extension
-::: tip
+::: tip Note
 Please always use `window.bitkeep.ethereum` as the constant provider when connecting to BitKeep Wallet.
 :::
 ### 1.   If it fails to detect the window?.bitkeep?.ethereum program
@@ -23,14 +23,14 @@ function getProvider() {
 ### 2. Overwriting and other conflicts 
 
 Many DApps use `window.ethereum` when connecting to `BitKeep Chrome Extension`, which causes overwriting and other conflicts, making users confused. Solution:
-::: tip
+::: tip Note
 Please use `window.bitkeep.ethereum` to connect to `BitKeep Chrome Extension`, it shares the same features as `web3.currentProvider` `window.ethereum program`. 
 Please refer to the following sample code for more than one wallet
 :::
 
 ### 3. Address conflicts when switching network
 
-::: tip
+::: tip Note
 Please clear the current wallet listening event before switching network.
 ::: 
 
@@ -166,7 +166,7 @@ For instance:
 
 ### 4. Difficulties in using third-party npm packages to connect
 
-::: tip
+::: tip Note
  When you are using a third-party npm package, please use `window.bitkeep.ethereum` as the provider.
 ::: 
 
@@ -209,7 +209,7 @@ The next version of the package will support BitKeep but it is yet to be release
 
 - #### [ethers.js](https://www.npmjs.com/package/ethers)
 
-::: tip
+::: tip Note
 ethers.js mounts the `_ethers` object in a window by default. It’s not recommended that you use `window. _ethers`
 BitKeep also injects the `_ether`s object by default to avoid conflicts caused by loading sequence.
 Refer to the following way to import and use.

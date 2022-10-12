@@ -1,6 +1,6 @@
 # solana
 
-:::tip
+:::tip Note
   You can  use third-party libraries in conjunction with `window.bitkeep.solana`
 :::
 - library

@@ -29,7 +29,7 @@ The provider API is all you need to create a full-featured web3 application.
 
 You can refer a third-party base about Web3.0 login to support Bitkeep Wallet quickly,   such as: 
 
-:::tip
+:::tip Note
 You can  use third-party libraries in conjunction with `window.bitkeep.ethereum`
 :::
   - library
@@ -94,7 +94,7 @@ These are the IDs of the Ethereum chains that BitKeep supports by default. Consu
 | 0xa3488    | 668808     | ASM              | 0x4e454152 | 1313161554 | Aurora           |
 | 0x63564c40 | 1666600000 | Harmony          |            |            |                  | 
 ## isConnected()
-:::tip
+:::tip Note
 Note that this method has nothing to do with the user's accounts.
 You may often encounter the word "connected" in reference to whether a web3 site can access the user's accounts. In the provider interface, however, "connected" and "disconnected" refer to whether the provider can make RPC requests to the current chain.
 :::
@@ -116,7 +116,7 @@ Provider.isConnected();
 ```
 ### eth_requestAccounts
 
-::: tip
+::: tip Note
 **EIP-1102**
 This method is specified by [EIP-1102](https://eips.ethereum.org/EIPS/eip-1102). It is equivalent to the deprecated `bitkeep.ethereum.enable()` provider API method.
 
