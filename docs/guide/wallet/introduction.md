@@ -4,6 +4,6 @@ Welcome to the developer documentation for BitKeep Wallet. The purpose of this d
 
 You can find the latest version of BitKeep Wallet on our [official website](https://bitkeep.com)
 
-- [IOS Download](https://bitkeep.com/download?type=1)
-- [Android Download](https://bitkeep.com/download?type=0)
-- [Chrome Extension](https://bitkeep.com/download?type=2)
+- [IOS Download](https://bitkeep.com/en/download?type=1)
+- [Android Download](https://bitkeep.com/en/download?type=0)
+- [Chrome Extension](https://bitkeep.com/en/download?type=2)

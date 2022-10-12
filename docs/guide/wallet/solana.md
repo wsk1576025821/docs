@@ -8,7 +8,7 @@ Quickly support bitkeep Wallet If the Other wallet is already available.
 
   If the MathWallet Wallet is already available. You can replace `window.solana` with `window.bitkeep.solana` as a provider.
 
-## IsInstalled
+## Installed or not
 
 ```js
 const isBitKeepInstalled = window.isBitKeep && window.bitkeep.solana;
@@ -20,7 +20,7 @@ const isBitKeepInstalled = window.isBitKeep && window.bitkeep.solana;
 function getProvider() {
   const provider = window.bitkeep && window.bitkeep.solana;
   if (!provider) {
-    window.open('https://bitkeep.com/download?type=2');
+    window.open('https://bitkeep.com/en/download?type=2');
     throw  `Please guide users to download from our official website`
   }
   return provider;

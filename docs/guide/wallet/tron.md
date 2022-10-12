@@ -2,7 +2,7 @@
 
 We provide [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/tron/dapp) and are compatible with [tronlink dapp](https://developers.tron.network/docs/dapp-integrate-with-tronlink-introduction).
 
-## isInstalled
+## Installed or not
 
 ```js
 const isBitKeepInstalled = window.tronLink && window.isBitKeep;
