@@ -1,19 +1,19 @@
 # solana
 
-We provide a [Simple demo](https://github.com/bitkeepwallet/download/tree/example/example/solana/dapp), and you can also refer to [solana-web3](https://solana-labs.github.io/solana-web3.js/)
-
-Quickly support bitkeep Wallet If the Other wallet is already available.
-
-- MathWallet
-
-  If the MathWallet Wallet is already available. You can replace `window.solana` with `window.bitkeep.solana` as a provider.
+:::tip
+  You can  use third-party libraries in conjunction with `window.bitkeep.solana`
+:::
+- library
+    -  [solana-web3](https://solana-labs.github.io/solana-web3.js)
+-  npm
+    - [wallet-adapter](https://www.npmjs.com/package/@solana/wallet-adapter-react) 
 
 ## Installed or not
 
 ```js
 const isBitKeepInstalled = window.isBitKeep && window.bitkeep.solana;
 ```
-
+https://github.com/solana-labs/wallet-adapter/tree/master/packages/wallets
 ## Provider
 
 ```js

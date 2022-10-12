@@ -34,12 +34,12 @@ MetaMaskProvider.on('chainChanged', async (chainId) => {
 ```
 
 - `window.solana` || `window.phantom`
-  ::: tip
+  ::: tip Note
   If the solana Wallet is already available. You can use the `window.bitkeep.solana` as a provider, which is the same as `window.solana` and `window.phantom`.  
   :::
 
 - `window.aptos`
-  ::: tip
+  ::: tip Note
   If the aptos Wallet is already available. You can use the `window.bitkeep.aptos` as a provider, which is the same as `window.aptos`.
   :::
 
