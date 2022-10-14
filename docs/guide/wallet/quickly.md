@@ -2,7 +2,7 @@
 
 ## EVM
 
-::: tip
+::: tip Note  
  Precondition:
 You have connected to Chrome extension wallets (including MetaMask) with the same protocol used to connect to MetaMask.
 :::
@@ -56,7 +56,7 @@ MetaMaskProvider.on('chainChanged', async (chainId) => {
 
 ## Solana
 
-::: tip
+::: tip Note
 Precondition:
 You have connected to Chrome extension wallets with the same protocol used to connect to MathWallet.
 :::
@@ -79,7 +79,7 @@ function getProvider() {
 
 ## Aptos
 
-::: tip
+::: tip Note 
 Precondition:
 You have connected to Chrome extension wallets with the same protocol of petra.
 :::

@@ -1,4 +1,4 @@
-# bitkeep swap
+# BitKeep Swap
 
 ::: tip Note
 Only BitKeep Chrome extension is supported for the time being
