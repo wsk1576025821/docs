@@ -26,17 +26,17 @@ function getProvider() {
 
 提供者API是你创建一个全功能的web3应用程序所需要的全部内容。
 
-你可以参考关于Web3.0登录的第三方网站，快速支持Bitkeep钱包，例如：
+可以参考三方库的 Web3.0 登录以实现快速接入 BitKeep 插件钱包。
 
 :::tip 提示
-你可以结合`window.bitkeep.ethereum`使用第三方库。
+使用第三方库时，使用 `window.bitkeep.ethereum` 作为程序的提供者注入。
 :::
 
   - 库
     -  [web3js](https://www.npmjs.com/package/web3)
     -  [ethers](https://www.npmjs.com/package/ethers)
-  -  npm
-      - [bitkeep-web3modal](https://www.npmjs.com/package/bitkeep-web3modal)
+  - npm
+    - [bitkeep-web3modal](https://www.npmjs.com/package/bitkeep-web3modal)
 
 ```js
 //npm install bitkeep-web3modal
