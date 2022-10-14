@@ -1,12 +1,33 @@
 # Quickly support BitKeep Wallet
 
-If the Other wallet is already available.
-[FAQs about BitKeep Chrome Extension](/faq.html#faqs-about-bitkeep-chrome-extension)
+## EVM
 
-- `MetaMask`
+::: tip  
+ Precondition:
+You have connected to Chrome extension wallets (including MetaMask) with the same protocol used to connect to MetaMask.
+:::
 
-Refer to [Address conflicts when switching network](/faq.html#_3-address-conflicts-when-switching-network)  code snippet 
-```js
+**What’s the easiest way to connect to BitKeep Wallet**  
+ Check if the provider is `window.bitkeep.ethereum`, if not, please replace it with the exclusive BitKeep provider `window.bitkeep.ethereum`.
+
+For example, see below:
+
+```JS
+function getProvider() {
+  const provider = window.bitkeep && window.bitkeep.ethereum;
+  if (!provider) {
+    return window.open('https://bitkeep.com/en/download?type=2');
+  }
+  return provider;
+}
+```
+
+**Attention**
+Don't forget to remove listeners, once it is detected that the address and network have been changed.R
+
+For example, see below:
+
+```JS
 //Bitkeep used
 const BitKeepProvider = window.bitkeep && window.bitkeep.ethereum;
 
@@ -33,24 +54,72 @@ MetaMaskProvider.on('chainChanged', async (chainId) => {
 });
 ```
 
-- `window.solana` || `window.phantom`
-  ::: tip Note
-  If the solana Wallet is already available. You can use the `window.bitkeep.solana` as a provider, which is the same as `window.solana` and `window.phantom`.  
-  :::
+## Solana
 
-- `window.aptos`
-  ::: tip Note
-  If the aptos Wallet is already available. You can use the `window.bitkeep.aptos` as a provider, which is the same as `window.aptos`.
-  :::
+::: tip  
+Precondition:
+You have connected to Chrome extension wallets with the same protocol used to connect to MathWallet.
+:::
 
-- Wallet Supported by bitkeep
+**What’s the easiest way to connect to BitKeep Wallet**  
+ Check if the provider is `window.bitkeep.solana`, if not, please replace it with the exclusive BitKeep provider `window.bitkeep.solana`.
 
-  | BitKeep Global Object    | support chain |
-  | ------------------------ | ------------- |
-  | window.bitkeep.ethereum  | EVM(MetaMask) |
-  | window.bitkeep.solana    | Solana        |
-  | window.tronLink          | Tron          |
-  | window.bitkeep.visionWeb | Vsision       |
-  | window.bitkeep.IWalletJS | Iost          |
-  | window.bitkeep.arweave   | Arweave       |
-  | window.bitkeep.aptos     | Aptos       |
+For example, see below:
+
+```JS
+function getProvider() {
+  const provider = window.bitkeep && window.bitkeep.solana;
+  if (!provider) {
+    window.open('https://bitkeep.com/en/download?type=2');
+    throw  `Please guide users to download from our official website`
+  }
+  return provider;
+}
+```
+
+## Aptos
+
+::: tip  
+Precondition:
+You have connected to Chrome extension wallets with the same protocol of petra.
+:::
+
+**What’s the easiest way to connect to BitKeep Wallet**  
+ Check if the provider is `window.bitkeep.aptos`, if not, please replace it with the exclusive BitKeep provider `window.bitkeep.aptos`.
+
+For example, see below:
+
+```JS
+function getAptosWallet() {
+  const provider = window.bitkeep && window.bitkeep.aptos;
+  if (!provider) {
+    window.open('https://bitkeep.com/download?type=2');
+    throw 'Please go to  https://bitkeep.com/download?type=2  to download!!';
+  }
+  return provider;
+}
+```
+
+## Other
+
+If the developer has not connected to other Chrome extension wallets using the above standards, please refer to the access mechanism of other mainnet APIs or third-party npm packages to connect to BitKeep Chrome extension wallet.
+
+### API
+
+- [EVM](/guide/wallet/ethereum.html)
+- [Solana](/guide/wallet/solana.html)
+- [Tron](/guide/wallet/tron.html)
+- [Aptos](/guide/wallet/aptos.html)
+
+### Third-party npm packages supported
+
+**EVM**
+
+- [web3js](https://www.npmjs.com/package/web3)
+- [ethers](https://www.npmjs.com/package/ethers)
+- [bitkeep-web3modal](https://www.npmjs.com/package/bitkeep-web3modal)
+
+**Solana**
+
+- [solana-web3.js](https://solana-labs.github.io/solana-web3.js/)
+- [@solana/wallet-adapter-react](https://www.npmjs.com/package/@solana/wallet-adapter-react)
