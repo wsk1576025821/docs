@@ -1,7 +1,7 @@
 module.exports = (_ctx) => ({
   sourceDir: 'docs',
   dest: 'docs/dist',
-  base: process.env.GITHUB_ACTION_REPOSITORY === 'hex-bk-repos/bitkeep-docs' ? '/bitkeep-docs' : '/',
+  base: process.env.CI ? '/bitkeep-docs' : '/',
 
   locales: {
     '/guide/': {
