@@ -1,6 +1,6 @@
 # Aptos
 
-要在您的 DApp 中使用 BitKeep 钱包，您的用户必须先在浏览器中安装 BitKeep 钱包的 Chrome 扩展。BitKeep 钱包会在用户访问的任何网络应用的 [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) 中注入一个 `bitkeep.aptos` 对象。
+要在您的 DApp 中使用 BitKeep 钱包，您的用户必须先在浏览器中安装 BitKeep 扩展钱包。BitKeep 钱包会在 [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) 中注入一个 `bitkeep.aptos` 对象。
 
 ## 是否安装
 
@@ -194,7 +194,7 @@ try {
 ::: warning 网络
   我们支持的网络：`Testnet` | `Devnet`
 
-  我们可能会支持 `主网` 而不是 `测试网`，在它上线后
+  上线后，我们可能会支持 `主网` 而不是 `测试网`
 :::
 
 由BitKeep钱包提供的默认网络:

@@ -8,7 +8,9 @@
 const isBitKeepInstalled = window.tronLink && window.isBitKeep;
 ```
 
-## eth_requestAccounts(请求授权连接)
+## eth_requestAccounts
+
+请求授权连接
 
 ```js
 try {
@@ -24,7 +26,9 @@ try {
   window.tronWeb.ready;
 ```
 
-## sendTransaction(交易)
+## sendTransaction
+
+交易
 
 ```js
 var tronweb = window.tronWeb;

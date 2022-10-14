@@ -1,7 +1,7 @@
 # Bitkeep Swap
 
 :::tip 提示
-暂时只支持BitKeep Chrome扩展程序如果你发送一个不支持的主网，将提示错误。
+暂时只支持 BitKeep Chrome 插件，如果你发送一个不支持的主网，将提示错误。
 :::
 
 ## window.bitkeep.navigateTo

@@ -1,11 +1,11 @@
 # Solana
 
 :::tip 提示
-你可以将第三方库与`window.bitkeep.solana`一起使用。
+使用第三方库时，使用 `window.bitkeep.solana` 作为程序的提供者。
 :::
 
 - 库
-  -  [solana-web3](https://solana-labs.github.io/solana-web3.js)
+  - [solana-web3](https://solana-labs.github.io/solana-web3.js)
 - npm
   - [wallet-adapter](https://www.npmjs.com/package/@solana/wallet-adapter-react)
 
@@ -30,7 +30,9 @@ function getProvider() {
 }
 ```
 
-## connect(请求授权连接)
+## connect
+
+请求授权连接
 
 ```js
 try {
