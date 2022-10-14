@@ -127,15 +127,15 @@ Provider.isConnected();
 
 **返回值**
 
-`string[]` - 一个单一的、十六进制的以太坊地址字符串的数组。
+`string[]` - 单个十六进制以太坊地址字符串数组。
 
 **描述**
 
-要求用户提供一个Ethereum地址来识别。返回一个Promise，它解析为一个单一的以太坊地址字符串的数组。如果用户拒绝该请求，Promise将以4001错误拒绝。
+请求用户提供一个以太坊地址来识别。返回一个解析为单个以太坊地址字符串数组的 Promise。如果用户拒绝该请求，Promise 将拒绝并返回 4001 错误。
 
-该请求会导致BitKeep的弹出窗口出现。你应该只在响应用户行动时请求用户的账户，例如点击按钮。你应该始终禁用导致请求被发送的按钮，而请求仍在等待中。
+这个请求会弹出 BitKeep 钱包窗口，通常用按钮来触发，在该请求未有响应时，应禁止用户点击按钮。
 
-如果你不能检索到用户的账户，你应该鼓励用户发起一个账户请求。
+如果您没有获取到用户的账户信息，您应该提示用户点击按钮等操作来发起请求。
 
 - `eth_accounts`
   - 获取 user
@@ -151,7 +151,7 @@ function connect() {
     .catch((error) => {
       if (error.code === 4001) {
         // EIP-1193 userRejectedRequest error
-        console.log('Please connect to MetaMask.');
+        console.log('Please connect to BitKeep.');
       } else {
         console.error(error);
       }
@@ -209,7 +209,7 @@ const chainId = await web3.eth.getChainId(); // 0x1
 
 要求用户在BitKeep中跟踪代币。返回一个布尔值，表示该代币是否被成功添加。
 
-大多数以太坊钱包支持一些代币集，通常来自中央策划的代币注册表。 wallet_watchAsset使web3应用程序开发人员能够要求他们的用户在运行时跟踪钱包中的代币。一旦添加，代币与通过传统方法添加的代币是没有区别的，例如中心化注册表。
+很多以太坊钱包都支持一组代币，通常来自集中管理的代币注册表。`wallet_watchAsset` 使 web3 应用程序开发人员能够在运行时要求他们的用户跟踪他们钱包中的代币。添加后，token 与通过传统方法（例如集中式注册表）添加的 token 无法区分。
 
 ```ts
   const Provider = getProvider();
@@ -263,11 +263,11 @@ const chainId = await web3.eth.getChainId(); // 0x1
 
   **返回值**
 
-  null - 如果请求成功，该方法返回null，否则返回错误。
+  `null` - 如果请求成功，该方法返回 `null`，否则返回错误。
 
   **与 wallet_switchEthereumChain 一起使用**
 
-  我们建议将此方法与wallet_addEthereumChain一起使用：
+  我们建议将此方法与 `wallet_addEthereumChain` 一起使用：
 
   ```js
   const Provider = getProvider();
@@ -304,7 +304,7 @@ const chainId = await web3.eth.getChainId(); // 0x1
 
   **参数:**
 
-  对于rpcUrls和blockExplorerUrls数组，至少需要一个元素，并且只使用第一个元素。
+  对于 `rpcUrls` 和 `blockExplorerUrls` 数组，至少需要一个元素，并且只使用第一个元素。
 
   ```js
   interface SwitchEthereumChainParameter {
@@ -314,13 +314,13 @@ const chainId = await web3.eth.getChainId(); // 0x1
 
   **返回值**
 
-  null - 如果请求成功，该方法返回null，否则返回错误。
+  `null` - 如果请求成功，该方法返回 `null`，否则返回错误。
 
   如果错误代码（`error.code`）是`4902`，那么BitKeep没有添加所请求的链，你必须通过`wallet_addEthereumChain`请求添加它。
 
   **描述**
 
-  与任何导致确认出现的方法一样，`wallet_switchEthereumChain`应该只在用户直接操作的情况下被调用，例如点击按钮。
+  与任何导致确认出现的方法一样，`wallet_switchEthereumChain` 应该只在用户直接操作的情况下被调用，例如点击按钮。
 
   在以下情况下，Bitkeep将自动拒绝该请求：
 
@@ -459,7 +459,7 @@ Provider.removeListener('accountsChanged', handleAccountsChanged); // only remov
 
 ## 错误
 
-所有由MetaMask提供者抛出或返回的错误都遵循这个接口：
+所有由 BitKeep 提供者抛出或返回的错误都遵循这个接口：
 
 ```ts
 interface ProviderRpcError extends Error {
