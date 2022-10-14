@@ -23,23 +23,23 @@ function getProvider() {
 }
 ```
 
-### 2. Overwriting and other conflicts
+### 2. 覆盖及其他钱包调用冲突的问题
 
-Many DApps use `window.ethereum` when connecting to `BitKeep Chrome Extension`, which causes overwriting and other conflicts, making users confused. Solution:
-::: tip Note
-Please use `window.bitkeep.ethereum` to connect to `BitKeep Chrome Extension`, it shares the same features as `web3.currentProvider` `window.ethereum program`.
-Please refer to the following sample code for more than one wallet
+许多 Dapp 接入 `BitKeep Extension` 时使用 `window.ethereum` 从而导致出现覆盖问题 冲突问题，这给用户带来了很多困惑。解决方案如下：
+
+::: tip 提示
+请使用 `window.bitkeep.ethereum` 接入 Bitkeep Extension，它和 `web3.currentProvider` `window.ethereum` 程序提供功能是相同的。可参考下面多钱包示例代码
 :::
 
-### 3. Address conflicts when switching network
+### 3. 多个钱包切换链或者地址冲突问题
 
-::: tip Note
-Please clear the current wallet listening event before switching network.
+::: tip 提示
+在切换钱包连接之前，应该清空上一次钱包监听的事件。
 :::
 
-For instance:
+示例代码:
 
-```javascript{45,74,78,86,89,51}
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -167,23 +167,21 @@ For instance:
 </html>
 ```
 
-### 4. Difficulties in using third-party npm packages to connect
+### 4. 使用第三方 npm 包接入问题
 
-::: tip Note
- When you are using a third-party npm package, please use `window.bitkeep.ethereum` as the provider.
+::: tip 提示
+使用第三方 npm 包，应该使用 `window.bitkeep.ethereum` 作为程序的提供者注入。
 :::
 
  - #### [web3modal](https://www.npmjs.com/package/web3modal)
 
- The latest release of the package allows to connect via the MetaMask interface. The latest code distinguishes different wallets but is not released yet. You have two options for this problem:
+ 该包的最新版本默认走MetaMask的统一方式，区分多钱包的方式最新代码还没发版。Bitkeep Extension提供如下两种解决方案示例代码：
 
-  - Option 1:  If BitKeep launches but does not function properly, please refer to: [ssues/574](https://github.com/WalletConnect/web3modal/issues/574)
+  1. 打开 BitKeep，但无法不能使用问题的解决方案: [ssues/574](https://github.com/WalletConnect/web3modal/issues/574)
+  2. 使用 [bitkeep-web3modal](https://www.npmjs.com/package/bitkeep-web3modal) 示例代码来支持 Bitkeep Extension
+  > 下面这种方式 fork 的 web3modal 支持多钱包存在的情况
 
-  -  Option II: Use [bitkeep-web3modal](https://www.npmjs.com/package/bitkeep-web3modal)
-  > web3modal forked in the following way supports the existence of multiple wallets
-
-
-```javascript
+```js
 import web3modal from 'bitkeep-web3modal';
 const web3Modal = new Web3Modal({
     network: 'mainnet', // optional
@@ -206,16 +204,15 @@ const web3Modal = new Web3Modal({
     }, // required
 });
 ```
+
 - #### [wagmi](https://www.npmjs.com/package/wagmi)
 
-The next version of the package will support BitKeep but it is yet to be released. For quick support, please refer to the [demo](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)[wagmi-bitkeep-react](https://github.com/bitkeepwallet/example/tree/master/evm-dapp-demo/wagmi-bitkeep-react) we provide.
+该包最新支持BitKeep版本处于待发布状态，如需快速支持可参考我们提供的示例[演示](https://github.com/bitkeepwallet/download/tree/example/example/eth/wagmi-bitkeep-react)实现。
 
 - #### [ethers.js](https://www.npmjs.com/package/ethers)
 
-::: tip Note
-ethers.js mounts the `_ethers` object in a window by default. It’s not recommended that you use `window. _ethers`
-BitKeep also injects the `_ether`s object by default to avoid conflicts caused by loading sequence.
-Refer to the following way to import and use.
+::: tip 提示
+ethers.js 默认在 window 上挂载 `_ethers` 对象, 不建议使用 `window._ethers` BitKeep 默认也注入了 `_ethers` 对象，避免使用 `_ethers` 因为加载顺序造成使用冲突参考以下方式引入使用。
 :::
 
 ```js

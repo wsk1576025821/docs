@@ -2,12 +2,12 @@
 
 ## EVM
 
-::: tip  
+::: tip
  Precondition:
 You have connected to Chrome extension wallets (including MetaMask) with the same protocol used to connect to MetaMask.
 :::
 
-**What’s the easiest way to connect to BitKeep Wallet**  
+**What’s the easiest way to connect to BitKeep Wallet**
  Check if the provider is `window.bitkeep.ethereum`, if not, please replace it with the exclusive BitKeep provider `window.bitkeep.ethereum`.
 
 For example, see below:
@@ -23,7 +23,7 @@ function getProvider() {
 ```
 
 **Attention**
-Don't forget to remove listeners, once it is detected that the address and network have been changed.R
+Don't forget to remove listeners, once it is detected that the address and network have been changed.
 
 For example, see below:
 
@@ -56,12 +56,12 @@ MetaMaskProvider.on('chainChanged', async (chainId) => {
 
 ## Solana
 
-::: tip  
+::: tip
 Precondition:
 You have connected to Chrome extension wallets with the same protocol used to connect to MathWallet.
 :::
 
-**What’s the easiest way to connect to BitKeep Wallet**  
+**What’s the easiest way to connect to BitKeep Wallet**
  Check if the provider is `window.bitkeep.solana`, if not, please replace it with the exclusive BitKeep provider `window.bitkeep.solana`.
 
 For example, see below:
@@ -79,12 +79,12 @@ function getProvider() {
 
 ## Aptos
 
-::: tip  
+::: tip
 Precondition:
 You have connected to Chrome extension wallets with the same protocol of petra.
 :::
 
-**What’s the easiest way to connect to BitKeep Wallet**  
+**What’s the easiest way to connect to BitKeep Wallet**
  Check if the provider is `window.bitkeep.aptos`, if not, please replace it with the exclusive BitKeep provider `window.bitkeep.aptos`.
 
 For example, see below:

@@ -1,18 +1,18 @@
-# 快速上手 BitKeep 钱包
+# 快速接入 BitKeep 插件钱包
 
 ## EVM
 
 :::tip 提示
-前提条件：你已经用连接到MetaMask的相同协议连接到Chrome扩展钱包（包括MetaMask）。
+前置条件：如果开发者已经 接入兼容 **MetaMask** 相同规范的插件钱包 。
 :::
 
-**连接到BitKeep钱包的最简单方法是什么？**
+**如何快速接入**
 
-检查提供者是否是`window.bitkeep.ethereum`，如果不是，请用BitKeep独家提供者`window.bitkeep.ethereum`替换。
+检测 provider 是否为`window.bitkeep.ethereum`，如不是 ，请将其替换为BitKeep专属provider `window.bitkeep.ethereum`。
 
-例如:
+代码示例：
 
-```JS
+```js
 function getProvider() {
   const provider = window.bitkeep && window.bitkeep.ethereum;
   if (!provider) {
@@ -22,13 +22,13 @@ function getProvider() {
 }
 ```
 
-**注意**
+**注意事项**
 
-一旦检测到地址和网络被改变，别忘了删除监听器。
+若开发者接入多个插件钱包，当用户切换网络或地址时，为避免与其他插件钱包调用冲突，开发者应在用户转网或切换地址前清除当前钱包监控事件。
 
-例如:
+代码示例：
 
-```JS
+```js
 //Bitkeep used
 const BitKeepProvider = window.bitkeep && window.bitkeep.ethereum;
 
@@ -58,16 +58,16 @@ MetaMaskProvider.on('chainChanged', async (chainId) => {
 ## Solana
 
 :::tip 提示
-前提条件：你已经用连接到MathWallet的相同协议连接到Chrome扩展钱包。
+前置条件：开发者已经接入 兼容 **MathWallet** 相同规范的插件钱包。
 :::
 
-**连接到BitKeep钱包的最简单方法是什么？**
+**如何快速接入**
 
-检查提供者是否是`window.bitkeep.solana`，如果不是，请用BitKeep独家提供者`window.bitkeep.solana`替换。
+检测provider 是否为`window.bitkeep.solana`，如不是 ，请将其替换为BitKeep专属provider `window.bitkeep.solana`。
 
-例如:
+代码示例：
 
-```JS
+```js
 function getProvider() {
   const provider = window.bitkeep && window.bitkeep.solana;
   if (!provider) {
@@ -81,16 +81,16 @@ function getProvider() {
 ## Aptos
 
 :::tip 提示
-前提条件：你已经连接到Chrome扩展的钱包，与petra的协议相同。
+前置条件：开发者已经接入 兼容 **petra** 相同规范的插件钱包。
 :::
 
-**连接到BitKeep钱包的最简单方法是什么？**
+**如何快速接入**
 
-检查提供者是否是`window.bitkeep.aptos`，如果不是，请用BitKeep独家提供者`window.bitkeep.aptos`替换。
+检测provider 是否为 `window.bitkeep.aptos`，如不是 ，请将其替换为BitKeep 专属provider `window.bitkeep.aptos`。
 
-例如:
+代码示例：
 
-```JS
+```js
 function getAptosWallet() {
   const provider = window.bitkeep && window.bitkeep.aptos;
   if (!provider) {
@@ -103,16 +103,16 @@ function getAptosWallet() {
 
 ## 其他
 
-如果开发者没有使用上述标准连接到其他Chrome扩展钱包，请参考其他主网API的访问机制或第三方npm包连接到BitKeep Chrome扩展钱包。
+如果开发者未按上述标准接入过其他插件钱包，可参考 不同链API接入 或 第三方npm包的接入方法接入BitKeep插件钱包。
 
-### API
+### API 接入
 
 - [EVM](/guide/wallet/ethereum.html)
 - [Solana](/guide/wallet/solana.html)
 - [Tron](/guide/wallet/tron.html)
 - [Aptos](/guide/wallet/aptos.html)
 
-### 支持的第三方 NPM 包
+### 已支持三方包
 
 **EVM**
 
