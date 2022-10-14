@@ -300,7 +300,7 @@ const chainId = await web3.eth.getChainId(); // 0x1
 
 - **wallet_switchEthereumChain**
 
-  创建一个确认，要求用户切换到指定的链ID的链上。
+  创建一个确认，要求用户切换到指定链ID的链上。
 
   **参数:**
 
@@ -324,9 +324,8 @@ const chainId = await web3.eth.getChainId(); // 0x1
 
   在以下情况下，Bitkeep将自动拒绝该请求：
 
-  - 如果链的ID是畸形的
-  - 如果具有指定链ID的链没有被添加到BitKeep中
-
+  - 如果链 ID 格式错误
+  - 如果指定的链 ID 未被添加到 BitKeep
 
 ### sendTransaction(Transfer)
 
@@ -405,7 +404,7 @@ function handleAccountsChainChanged() {
 }
 ```
 
-另外，不要忘记在你听完后删除监听器（例如在React中的组件卸载）。防止多次监听，并在监听前清除它`removeAllListeners`。
+另外，一旦开启监听器，监听完后不要忘记删除它们（例如在React中的组件卸载）。使用 `removeAllListeners` 防止多次监听。
 
 ```js
 const Provider = getProvider();
@@ -469,7 +468,7 @@ interface ProviderRpcError extends Error {
 }
 ```
 
-ethereum.request(args) 方法会急切地抛出错误。你通常可以使用错误代码属性来确定请求失败的原因。常见的代码及其含义包括:
+ethereum.request(args) 方法会及时的抛出错误。你通常可以使用错误代码属性来确定请求失败的原因。常见的代码及其含义包括:
 
 - `4001`
   - 该请求被用户拒绝
