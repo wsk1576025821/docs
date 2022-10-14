@@ -17,5 +17,5 @@ window.onload = function () {
     );
   }
 
-  window.bit_doc_verison = '1.0.3';
+
 };

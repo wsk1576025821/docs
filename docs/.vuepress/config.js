@@ -152,25 +152,29 @@ function getGuideSidebar(guide, dapp, resources) {
       title: dapp,
       collapsable: false,
       children: [
-        // {
-        //   title: "Connect Wallet",
-        //   children:[
-
-        //   ]
-        // },
-        "wallet/introduction",
-        "wallet/quickly",
-        "wallet/ethereum",
-        "wallet/tron",
-        "wallet/solana",
-        "wallet/aptos",
-        "wallet/bitkeep",
-        "wallet/walletconnet",
-        // 'connect-wallet-for-dapp',
-        'switch-network-for-dapp',
-        'webview-function',
-        // 'apply-list-for-dapp',
-        "faq"
+        {
+          title: "Extension wallet",
+          children:[
+            "wallet/introduction",
+            "wallet/quickly",
+            "wallet/ethereum",
+            "wallet/solana",
+            "wallet/tron",
+            "wallet/aptos",
+            "wallet/bitkeep",
+            "wallet/faq"
+            // 'connec  t-wallet-for-dapp',
+          ]
+        },
+        {
+          title: "mobile",
+          children:[
+            "mobile/walletconnet",
+            'mobile/switch-network-for-dapp',
+            'mobile/webview-function'
+          ]
+        },
+        
       ],
     },
     {
