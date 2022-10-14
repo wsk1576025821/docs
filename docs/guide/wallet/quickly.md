@@ -2,7 +2,7 @@
 
 ## EVM
 
-::: tip Note  
+::: tip Note
  Precondition:
 You have connected to Chrome extension wallets (including MetaMask) with the same protocol used to connect to MetaMask.
 :::
@@ -79,7 +79,7 @@ function getProvider() {
 
 ## Aptos
 
-::: tip Note 
+::: tip Note
 Precondition:
 You have connected to Chrome extension wallets with the same protocol of petra.
 :::
