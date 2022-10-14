@@ -1,18 +1,18 @@
-# Quickly support BitKeep Wallet
+# 快速接入 BitKeep 插件钱包
 
 ## EVM
 
-::: tip Note
- Precondition:
-You have connected to Chrome extension wallets (including MetaMask) with the same protocol used to connect to MetaMask.
+:::tip 提示
+前置条件：如果开发者已经 接入兼容 **MetaMask** 相同规范的插件钱包 。
 :::
 
-**What’s the easiest way to connect to BitKeep Wallet**
- Check if the provider is `window.bitkeep.ethereum`, if not, please replace it with the exclusive BitKeep provider `window.bitkeep.ethereum`.
+**如何快速接入**
 
-For example, see below:
+检测 provider 是否为`window.bitkeep.ethereum`，如不是 ，请将其替换为BitKeep专属provider `window.bitkeep.ethereum`。
 
-```JS
+代码示例：
+
+```js
 function getProvider() {
   const provider = window.bitkeep && window.bitkeep.ethereum;
   if (!provider) {
@@ -22,12 +22,13 @@ function getProvider() {
 }
 ```
 
-**Attention**
-Don't forget to remove listeners, once it is detected that the address and network have been changed.
+**注意事项**
 
-For example, see below:
+若开发者接入多个插件钱包，当用户切换网络或地址时，为避免与其他插件钱包调用冲突，开发者应在用户转网或切换地址前清除当前钱包监控事件。
 
-```JS
+代码示例：
+
+```js
 //Bitkeep used
 const BitKeepProvider = window.bitkeep && window.bitkeep.ethereum;
 
@@ -56,17 +57,17 @@ MetaMaskProvider.on('chainChanged', async (chainId) => {
 
 ## Solana
 
-::: tip Note
-Precondition:
-You have connected to Chrome extension wallets with the same protocol used to connect to MathWallet.
+:::tip 提示
+前置条件：开发者已经接入 兼容 **MathWallet** 相同规范的插件钱包。
 :::
 
-**What’s the easiest way to connect to BitKeep Wallet**
- Check if the provider is `window.bitkeep.solana`, if not, please replace it with the exclusive BitKeep provider `window.bitkeep.solana`.
+**如何快速接入**
 
-For example, see below:
+检测provider 是否为`window.bitkeep.solana`，如不是 ，请将其替换为BitKeep专属provider `window.bitkeep.solana`。
 
-```JS
+代码示例：
+
+```js
 function getProvider() {
   const provider = window.bitkeep && window.bitkeep.solana;
   if (!provider) {
@@ -79,17 +80,17 @@ function getProvider() {
 
 ## Aptos
 
-::: tip Note
-Precondition:
-You have connected to Chrome extension wallets with the same protocol of petra.
+:::tip 提示
+前置条件：开发者已经接入 兼容 **petra** 相同规范的插件钱包。
 :::
 
-**What’s the easiest way to connect to BitKeep Wallet**
- Check if the provider is `window.bitkeep.aptos`, if not, please replace it with the exclusive BitKeep provider `window.bitkeep.aptos`.
+**如何快速接入**
 
-For example, see below:
+检测provider 是否为 `window.bitkeep.aptos`，如不是 ，请将其替换为BitKeep 专属provider `window.bitkeep.aptos`。
 
-```JS
+代码示例：
+
+```js
 function getAptosWallet() {
   const provider = window.bitkeep && window.bitkeep.aptos;
   if (!provider) {
@@ -100,18 +101,18 @@ function getAptosWallet() {
 }
 ```
 
-## Other
+## 其他
 
-If the developer has not connected to other Chrome extension wallets using the above standards, please refer to the access mechanism of other mainnet APIs or third-party npm packages to connect to BitKeep Chrome extension wallet.
+如果开发者未按上述标准接入过其他插件钱包，可参考 不同链API接入 或 第三方npm包的接入方法接入BitKeep插件钱包。
 
-### API
+### API 接入
 
 - [EVM](/guide/wallet/ethereum.html)
 - [Solana](/guide/wallet/solana.html)
 - [Tron](/guide/wallet/tron.html)
 - [Aptos](/guide/wallet/aptos.html)
 
-### Third-party npm packages supported
+### 已支持三方包
 
 **EVM**
 
