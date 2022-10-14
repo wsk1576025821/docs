@@ -67,7 +67,7 @@ const web3Modal = new Web3Modal({
 
 ## 链 ID 列表
 
-这些是BitKeep默认支持的以太坊链的ID。更多信息请参考 [chainid.network](https://chainlist.org/zh)。
+这些是BitKeep默认支持的以太坊链的chainId。更多信息请参考 [chainid.network](https://chainlist.org/zh)。
 
 | Hex        | Decimal    | Network          | Hex        | Decimal    | Network          |
 | ---------- | ---------- | ---------------- | ---------- | ---------- | ---------------- |
@@ -98,7 +98,7 @@ const web3Modal = new Web3Modal({
 ## isConnected()
 
 :::tip 提示
-请注意，这种方法与用户的账户没有任何关系。你可能经常遇到 "连接 "这个词，指的是web3站点是否可以访问用户的账户。然而，在提供者界面中，"连接 "和 "断开 "指的是提供者是否能向当前链发出RPC请求。
+请注意，这种方法与用户的账户没有任何关系。你可能经常遇到 "connected "这个词，指的是web3站点是否可以访问用户的账户。然而，在提供者界面中，"conented "和 "disconnected "指的是提供者是否能向当前链发出RPC请求。
 :::
 
 ```js
@@ -244,7 +244,7 @@ const chainId = await web3.eth.getChainId(); // 0x1
 
   **参数:**
 
-  对于rpcUrls和blockExplorerUrls数组，至少需要一个元素，并且只使用第一个元素。
+  对于`rpcUrls`和`blockExplorerUrls`数组，至少需要一个元素，并且只使用第一个元素。
 
   ```js
   interface AddEthereumChainParameter {
@@ -420,7 +420,7 @@ Provider.removeListener('accountsChanged', handleAccountsChanged); // only remov
 
 **accountsChanged**
 
-每当 eth_accounts RPC方法的返回值发生变化时，BitKeep提供者就会发出这个事件。 eth_accounts返回一个数组，这个数组要么是空的，要么包含一个账户地址。如果有的话，返回的地址是最近使用的账户的地址，呼叫者被允许访问。调用者通过他们的URL起源来识别，这意味着所有具有相同起源的网站共享相同的权限。
+每当 eth_accounts RPC 方法的返回值发生变化时，BitKeep 提供程序都会发出此事件。eth_accounts 返回一个空数组或包含单个帐户地址的数组。返回的地址（如果有）是允许调用者访问的最近使用的帐户的地址。调用者由其 URL 来源标识，这意味着具有相同来源的所有站点共享相同的权限。
 
 这意味着只要用户暴露的账户地址发生变化，就会发出 accountsChanged。
 
