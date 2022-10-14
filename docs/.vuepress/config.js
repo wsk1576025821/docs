@@ -3,11 +3,16 @@ module.exports = (_ctx) => ({
   dest: 'docs/dist',
 
   locales: {
-    '/': {
+    '/guide/': {
       lang: 'en-US',
       title: 'BitKeep Docs',
       description: 'Developer documentation for BitKeep Wallet',
     },
+    '/guide/zh-cn/': {
+      lang: 'zh-CN',
+      title: 'BitKeep 文档',
+      description: 'BitKeep 钱包开发者文档'
+    }
   },
 
   head: [
@@ -66,23 +71,116 @@ module.exports = (_ctx) => ({
       indexName: process.env.ALGOLIA_INDEX_NAME,
     },
     locales: {
-      '/': {
+      '/guide/': {
         label: 'English',
         selectText: 'Languages',
         editLinkText: 'Edit this page on GitHub',
         lastUpdated: 'Last Updated',
         nav: require('./nav/en'),
         sidebar: {
-          '/guide/': getGuideSidebar(
-            'Guide',
-            'DApp Development',
-            'Resources'
-          ),
-        },
+          '/guide/': [
+            {
+              title: 'Guide',
+              collapsable: false,
+              children: [
+                ''
+              ]
+            },
+            {
+              title: 'DApp Development',
+              collapsable: false,
+              children: [
+                {
+                  title: "Extension Wallet",
+                  collapsable: false,
+                  children:[
+                    "wallet/introduction",
+                    "wallet/quickly",
+                    "wallet/ethereum",
+                    "wallet/solana",
+                    "wallet/tron",
+                    "wallet/aptos",
+                    "wallet/bitkeep",
+                    "wallet/faq"
+                  ]
+                },
+                {
+                  title: "Mobile",
+                  collapsable: false,
+                  children:[
+                    'mobile/walletconnet',
+                    'mobile/switch-network-for-dapp',
+                    'mobile/webview-function'
+                  ]
+                }
+              ]
+            },
+            {
+              title: 'Resources',
+              collapsable: false,
+              children: [
+                'resources'
+              ]
+            }
+          ]
+        }
       },
-    },
+      '/guide/zh-cn/': {
+        label: '简体中文',
+        selectText: '选择语言',
+        editLinkText: '在 GitHub 上编辑',
+        lastUpdated: '最后更新',
+        nav: require('./nav/zh-cn'),
+        sidebar: {
+          '/guide/zh-cn/': [
+            {
+              title: '手册',
+              collapsable: false,
+              children: [
+                ''
+              ]
+            },
+            {
+              title: 'DApp 开发',
+              collapsable: false,
+              children: [
+                {
+                  title: "插件钱包",
+                  collapsable: false,
+                  children:[
+                    "wallet/introduction",
+                    "wallet/quickly",
+                    "wallet/ethereum",
+                    "wallet/solana",
+                    "wallet/tron",
+                    "wallet/aptos",
+                    "wallet/bitkeep",
+                    "wallet/faq"
+                  ]
+                },
+                {
+                  title: "移动端",
+                  collapsable: false,
+                  children:[
+                    'mobile/walletconnet',
+                    'mobile/switch-network-for-dapp',
+                    'mobile/webview-function'
+                  ]
+                }
+              ]
+            },
+            {
+              title: '资源',
+              collapsable: false,
+              children: [
+                'resources'
+              ]
+            }
+          ]
+        }
+      }
+    }
   },
-
 
   plugins: [
     ['@vuepress/back-to-top', false],
@@ -91,7 +189,7 @@ module.exports = (_ctx) => ({
       {
         serviceWorker: false,
         popupComponent: 'MySWUpdatePopup',
-        updatePopup: true ,
+        updatePopup: true,
       },
     ],
     ['@vuepress/medium-zoom', true],
@@ -117,11 +215,10 @@ module.exports = (_ctx) => ({
         redirectors: [
           {
             base: '/',
-            alternative: '/guide/',
+            alternative: '/guide',
           }
-        ],
-
-      },
+        ]
+      }
     ],
     [
       'tabs',
@@ -136,53 +233,4 @@ module.exports = (_ctx) => ({
   markdown:{
     lineNumbers:true
   }
-
 });
-
-function getGuideSidebar(guide, dapp, resources) {
-  return [
-    {
-      title: guide,
-      collapsable: false,
-      children: [
-        ''
-      ],
-    },
-    {
-      title: dapp,
-      collapsable: false,
-      children: [
-        {
-          title: "Extension wallet",
-          children:[
-            "wallet/introduction",
-            "wallet/quickly",
-            "wallet/ethereum",
-            "wallet/solana",
-            "wallet/tron",
-            "wallet/aptos",
-            "wallet/bitkeep",
-            "wallet/faq"
-            // 'connec  t-wallet-for-dapp',
-          ]
-        },
-        {
-          title: "mobile",
-          children:[
-            "mobile/walletconnet",
-            'mobile/switch-network-for-dapp',
-            'mobile/webview-function'
-          ]
-        },
-        
-      ],
-    },
-    {
-      title: resources,
-      collapsable: false,
-      children: [
-        "resources"
-      ],
-    },
-  ];
-}
