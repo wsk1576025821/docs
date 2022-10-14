@@ -6,7 +6,7 @@ WalletConnect is an open protocol for connecting wallets and DApps (Web3 applica
 
 For more detailed document, please refer to the [https://docs.walletconnect.com](https://docs.walletconnect.com)
 
-- [react-app.walletconnect.com/)](https://react-app.walletconnect.com/)
+- [react-app.walletconnect.com](https://react-app.walletconnect.com/)
 - [Web3 Provider](https://docs.walletconnect.com/quick-start/dapps/web3-provider)
 - [Standalone Client](https://docs.walletconnect.com/quick-start/dapps/client)
 - [example](https://github.com/WalletConnect/web-examples)

@@ -1,4 +1,4 @@
-# introduction
+# Introduction
 
 Welcome to the developer documentation for BitKeep Wallet. The purpose of this document is to explain how to build a DApp using the BitKeep Wallent.
 
