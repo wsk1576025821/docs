@@ -223,3 +223,13 @@ const ethers = rquire("ethers")
 window.ethers
 
 ```
+### 5. Aptos has switched to Mainnet 
+::: tip network
+ We support network：  `Mainnet` | `Devnet`
+
+ `Testnet` has been modified to `Mainnet` 
+
+  Aptos network switching can be tested by `Devnet`
+
+:::
+

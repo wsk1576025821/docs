@@ -194,7 +194,10 @@ try {
 A DApp may want to make sure a user is on the right network. In this case, you will need to check what network the wallet is using.
  
 ::: warning network
- 'Mainnet' has been launched, and 'Testnet' has been modified to 'Mainnet'`  
+ We support network：
+  `Mainnet` | `Devnet`
+
+  'Testnet' has been modified to 'Mainnet'`    
 :::
 
 Default networks provided by the BitKeep wallet:
@@ -203,6 +206,7 @@ Default networks provided by the BitKeep wallet:
 // default networks in the wallet
 enum Network {
   Mainnet = 'Mainnet'
+  Devnet = 'Devnet'
 }
 
 // Current network

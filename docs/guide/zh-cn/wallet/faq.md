@@ -223,3 +223,15 @@ const ethers = rquire("ethers")
 window.ethers
 
 ```
+### 5. Aptos已经切换成Mainnet
+::: tip 网络
+  We support network： `Mainnet` | `Devnet`
+   
+  正式`Mainnet`已经上线,`Testnet`已经修改成`Mainnet`
+
+  可以使用`DevTest`进行测试
+
+:::
+
+
+
