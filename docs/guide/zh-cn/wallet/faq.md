@@ -225,7 +225,7 @@ window.ethers
 ```
 ### 5. Aptos已经切换成Mainnet
 ::: tip 网络
-  We support network： `Mainnet` | `Devnet`
+  我们现在支持的网络：`Mainnet` | `Devnet`
    
   正式`Mainnet`已经上线,`Testnet`已经修改成`Mainnet`
 
