@@ -83,7 +83,7 @@ For instance:
         if (type == "bitkeep") {
           provider = window.bitkeep && window.bitkeep.ethereum;
           if (!provider) {
-            window.open("https://bitkeep.com/download?type=0&theme=light");
+            window.open("https://bitkeep.com/en/download?type=0&theme=light");
             throw "please install BitKeep";
           }
         } else {

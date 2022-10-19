@@ -94,8 +94,8 @@ function getProvider() {
 function getAptosWallet() {
   const provider = window.bitkeep && window.bitkeep.aptos;
   if (!provider) {
-    window.open('https://bitkeep.com/download?type=2');
-    throw 'Please go to  https://bitkeep.com/download?type=2  to download!!';
+    window.open('https://bitkeep.com/en/download?type=2');
+    throw 'Please go to  https://bitkeep.com/en/download?type=2  to download!!';
   }
   return provider;
 }
