@@ -194,10 +194,7 @@ try {
 A DApp may want to make sure a user is on the right network. In this case, you will need to check what network the wallet is using.
  
 ::: warning network
-  We support network：
-    `Testnet` | `Devnet`
-
-  We may support the `Mainnet` instead of the `Testnet` after it goes live
+ 'Mainnet' has been launched, and 'Testnet' has been modified to 'Mainnet'`  
 :::
 
 Default networks provided by the BitKeep wallet:
@@ -205,8 +202,7 @@ Default networks provided by the BitKeep wallet:
 ```ts
 // default networks in the wallet
 enum Network {
-  Testnet = 'Testnet',
-  Devnet = 'Devnet',
+  Mainnet = 'Mainnet'
 }
 
 // Current network
@@ -214,7 +210,7 @@ let network = await window.bitkeep.aptos.network();
 
 // event listener for network changing
 window.bitkeep.aptos.onNetworkChange((newNetwork) => {
-  network = newNetwork; // { networkName: 'Testnet' }
+  network = newNetwork; // { networkName: 'Mainnet' }
 });
 ```
 

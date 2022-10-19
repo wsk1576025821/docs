@@ -192,9 +192,7 @@ try {
 一个DApp可能想确保用户是在正确的网络上。在这种情况下，你需要检查钱包使用的是什么网络。
 
 ::: warning 网络
-  我们支持的网络：`Testnet` | `Devnet`
-
-  上线后，我们可能会支持 `主网` 而不是 `测试网`
+  正式`Mainnet`已经上线   `Testnet`已经修改成`Mainnet`
 :::
 
 由BitKeep钱包提供的默认网络:
@@ -202,8 +200,7 @@ try {
 ```ts
 // default networks in the wallet
 enum Network {
-  Testnet = 'Testnet',
-  Devnet = 'Devnet',
+  Mainnet = 'Mainnet'
 }
 
 // Current network
@@ -211,7 +208,7 @@ let network = await window.bitkeep.aptos.network();
 
 // event listener for network changing
 window.bitkeep.aptos.onNetworkChange((newNetwork) => {
-  network = newNetwork; // { networkName: 'Testnet' }
+  network = newNetwork; // { networkName: 'Mainnet' }
 });
 ```
 
