@@ -80,9 +80,20 @@ const transaction = {
     type_arguments: ['0x1::aptos_coin::TestCoin'],
 };
 
-
+/** 自定义 gas fee
+ *  default {
+        "gas_unit_price":"100",
+        "max_gas_amount":"10000"
+    }
+ */
+const options = {
+  
+    gas_unit_price: 100,
+    max_gas_amount: 10000
+} 
 try {
     const pendingTransaction = await window.bitkeep.aptos.signAndSubmitTransaction(transaction);
+    // const pendingTransaction = await window.bitkeep.aptos.signAndSubmitTransaction(transaction, options);
 
     // In most cases a dApp will want to wait for the transaction, in these cases you can use the typescript sdk
     const client = new AptosClient('https://testnet.aptoslabs.com');
@@ -109,8 +120,19 @@ const transaction = {
     type_arguments: ['0x1::aptos_coin::TestCoin'],
 };
 
+/** 自定义 gas fee
+ *  default {
+        "gas_unit_price":"100",
+        "max_gas_amount":"10000"
+    }
+ */
+const options = {
+    gas_unit_price: 100,
+    max_gas_amount: 10000
+} 
 try {
     const signTransaction = await window.bitkeep.aptos.signTransaction(transaction)
+      // const signTransaction = await window.bitkeep.aptos.signTransaction(transaction, options)
 } catch (error) {
     // see "Errors"
 }
