@@ -110,6 +110,7 @@ module.exports = (_ctx) => ({
                   collapsable: false,
                   children:[
                     'mobile/walletconnet',
+                    'mobile/Deeplink',
                     'mobile/switch-network-for-dapp',
                     'mobile/webview-function'
                   ]
@@ -164,6 +165,7 @@ module.exports = (_ctx) => ({
                   collapsable: false,
                   children:[
                     'mobile/walletconnet',
+                    'mobile/Deeplink',
                     'mobile/switch-network-for-dapp',
                     'mobile/webview-function'
                   ]
