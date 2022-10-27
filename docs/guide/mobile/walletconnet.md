@@ -61,4 +61,262 @@ connector.on('disconnect', (error, payload) => {
 
 ## EVM(Native App SDK)
 
-Please refer to the [WalletConnect Doc](https://docs.walletconnect.com/quick-start) and follow to find the docking documentation of your current program
+::: tip  
+ Precondition: The application has integrated the [Wallet Connect](https://docs.walletconnect.com/)feature.
+:::
+
+**Description**
+
+- This option only supports EVM chains.
+- If there’s a need to determine the BitKeep package name, a list of package names can be made available upon request.
+
+### Connect Wallet
+
+Call BitKeep Wallet through scheme and transfer the Wallet Connect data. Please fill in **`bitkeep`** for **scheme value**.
+
+#### Instructions for data transfer
+
+| Value       | Notes                                                             | Remarks                            |
+| ----------- | ----------------------------------------------------------------- | ---------------------------------- |
+| uriString   | Generate the corresponding WC connection through the WC generator | Interface access is time-sensitive |
+| action      | value: `connect`                                                  |                                    |
+| connectType | value: `wc`                                                       |                                    |
+
+> You can proceed according to the exception in catch.
+
+#### Request examples for different platforms
+
+#### Android
+
+```Java
+final String uriString = "wc:e3504282-91c5-4d8b-ae93-6a767532aa20@1?bridge=https%3A%2F%2Fw.bridge.walletconnect.org&key=437444a526c310620482604dd904db09d1f3ef840a7278c5c593a298b3604b22";
+final String action = "connect";
+final String connectType = "wc";
+final Uri uri = new Uri.Builder()
+        .scheme("bitkeep")
+        .appendQueryParameter("action", action)
+        .appendQueryParameter("connectType", connectType)
+        .appendQueryParameter("value", uriString)
+        .build();
+try {
+    Intent intent = new Intent(
+            Intent.ACTION_VIEW,
+            uri
+    );
+    startActivity(intent);
+}catch (Exception e){
+    Log.e("startActivityFail",e.toString());
+}
+```
+
+#### FLutter
+
+```Dart
+final  uriString = "wc:xxx?bridge=xxx&key=xxx";
+final  action = "connect";
+final  connectType = "wc";
+
+ final queryParameters = {
+   'action': action,
+   'connectType': connectType,
+   'value': uriString,
+ };
+ Uri scheme = Uri(scheme: 'bitkeep', queryParameters: queryParameters);
+ if(await canLaunchUrl(scheme)){
+   await wlaunchUrl(scheme);
+ } else {
+   KLog.e('launch app fail');
+ }
+```
+
+#### iOS
+
+```Java
+- (NSURL *)getDeepLinkUrl:(NSDictionary *)params {
+  NSString *_paramsString = [self encodeParams:params];
+  NSString *_deepLinkString = [NSString stringWithFormat:@"bitkeep:?%@",_paramsString];
+  return [NSURL URLWithString:_deepLinkString];
+}
+- (NSString *)encodeParams:(NSDictionary *)params {
+  NSMutableString *tmpString = @"".copy;
+
+  for (int i = 0; i < params.allKeys.count; i++) {
+    NSString *_tmpValue = [NSString stringWithFormat:@"%@=%@", params.allKeys[i], [params objectForKey:params.allKeys[i]]];
+    [tmpString appendString:[NSString stringWithFormat:@"&%@", _tmpValue]];
+  }
+  return tmpString;
+}
+```
+
+#### Js
+
+```JS
+final String uriString = "wc:e3504282-91c5-4d8b-ae93-6a767532aa20@1?bridge=https%3A%2F%2Fw.bridge.walletconnect.org&key=437444a526c310620482604dd904db09d1f3ef840a7278c5c593a298b3604b22";
+final String action = "connect";
+final String connectType = "wc";
+
+var linkUrl = 'bitkeep://?action=${action}&connectType=${connectType}&vale=${uriString}'
+ <a href= linkUrl/>
+```
+
+### Signiture
+
+Call BitKeep Wallet through scheme and transfer the Wallet Connect data. Please fill in **`bitkeep`** for **scheme value**.
+
+#### Instructions for data transfer
+
+| Value       | Notes         |
+| ----------- | ------------- | --- |
+| action      | Value: `sign` |     |
+| connectType | value: `wc`   |     |
+
+#### Request examples for different platforms
+
+#### Android
+
+```Java
+final String action = "sign";
+final String connectType = "wc";
+final Uri uri = new Uri.Builder()
+        .scheme("bitkeep")
+        .appendQueryParameter("action", action)
+        .appendQueryParameter("connectType", connectType)
+        .build();
+try {
+    Intent intent = new Intent(
+            Intent.ACTION_VIEW,
+            uri
+    );
+    startActivity(intent);
+}catch (Exception e){
+    Log.e("startActivityFail",e.toString());
+}
+```
+
+#### FLutter
+
+```Dart
+final  action = "sign";
+final  connectType = "wc";
+
+ final queryParameters = {
+   'action': action,
+   'connectType': connectType,
+ };
+ Uri scheme = Uri(scheme: 'bitkeep', queryParameters: queryParameters);
+ if(await canLaunchUrl(scheme)){
+   await wlaunchUrl(scheme);
+ } else {
+   KLog.e('launch app fail');
+ }
+```
+
+#### iOS
+
+```Java
+- (NSURL *)getDeepLinkUrl:(NSDictionary *)params {
+  NSString *_paramsString = [self encodeParams:params];
+  NSString *_deepLinkString = [NSString stringWithFormat:@"bitkeep:?%@",_paramsString];
+  return [NSURL URLWithString:_deepLinkString];
+}
+- (NSString *)encodeParams:(NSDictionary *)params {
+  NSMutableString *tmpString = @"".copy;
+
+  for (int i = 0; i < params.allKeys.count; i++) {
+    NSString *_tmpValue = [NSString stringWithFormat:@"%@=%@", params.allKeys[i], [params objectForKey:params.allKeys[i]]];
+    [tmpString appendString:[NSString stringWithFormat:@"&%@", _tmpValue]];
+  }
+  return tmpString;
+}
+```
+
+#### Js
+
+```JS
+final String action = "sign";
+final String connectType = "wc";
+
+var linkUrl = 'bitkeep://?action=${action}&connectType=${connectType}'
+ <a href= linkUrl/>
+```
+
+### Send
+
+Call BitKeep Wallet through scheme and transfer the Wallet Connect data. Please fill in **`bitkeep`** for **scheme value**.
+
+#### Instructions for data transfer
+
+| Value       | Notes         |
+| ----------- | ------------- | --- |
+| action      | Value: `send` |     |
+| connectType | Value: `wc`   |     |
+
+#### Request examples for different platforms
+
+#### Android
+
+```Java
+final String action = "send";
+final String connectType = "wc";
+final Uri uri = new Uri.Builder()
+        .scheme("bitkeep")
+        .appendQueryParameter("action", action)
+        .appendQueryParameter("connectType", connectType)
+        .build();
+try {
+    Intent intent = new Intent(
+            Intent.ACTION_VIEW,
+            uri
+    );
+    startActivity(intent);
+}catch (Exception e){
+    Log.e("startActivityFail",e.toString());
+}
+```
+
+#### FLutter
+
+```Dart
+final  action = "send";
+final  connectType = "wc";
+
+ final queryParameters = {
+   'action': action,
+   'connectType': connectType,
+ };
+ Uri scheme = Uri(scheme: 'bitkeep', queryParameters: queryParameters);
+ if(await canLaunchUrl(scheme)){
+   await wlaunchUrl(scheme);
+ } else {
+   KLog.e('launch app fail');
+ }
+```
+
+#### iOS
+
+```Java
+- (NSURL *)getDeepLinkUrl:(NSDictionary *)params {
+  NSString *_paramsString = [self encodeParams:params];
+  NSString *_deepLinkString = [NSString stringWithFormat:@"bitkeep:?%@",_paramsString];
+  return [NSURL URLWithString:_deepLinkString];
+}
+- (NSString *)encodeParams:(NSDictionary *)params {
+  NSMutableString *tmpString = @"".copy;
+
+  for (int i = 0; i < params.allKeys.count; i++) {
+    NSString *_tmpValue = [NSString stringWithFormat:@"%@=%@", params.allKeys[i], [params objectForKey:params.allKeys[i]]];
+    [tmpString appendString:[NSString stringWithFormat:@"&%@", _tmpValue]];
+  }
+  return tmpString;
+}
+```
+
+#### Js
+
+```JS
+final String action = "send";
+final String connectType = "wc";
+
+var linkUrl = 'bitkeep://?action=${action}&connectType=${connectType}'
+ <a href= linkUrl/>
+```
