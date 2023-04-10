@@ -2,6 +2,8 @@
 
 要在您的 DApp 中使用 BitKeep 钱包，您的用户必须先在浏览器中安装 BitKeep 扩展钱包。BitKeep 钱包会在 [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) 中注入一个 `bitkeep.aptos` 对象。
 
+## npm package 
+  - [Aptos Wallet Adapter](https://github.com/hippospace/aptos-wallet-adapter) 
 ## 是否安装
 
 要检查用户是否已经安装BitKeep钱包，请执行以下检查:

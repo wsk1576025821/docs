@@ -1,4 +1,4 @@
-# Ethereum
+# Ethereum(EVM)
 
 BitKeep injects a global API into websites visited by its users at `window?.bitkeep?.ethereum`. This API allows websites to request users' Ethereum accounts, read data from blockchains the user is connected to, and suggest that the user sign messages and transactions. The presence of the provider object indicates an Ethereum user.
 

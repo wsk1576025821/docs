@@ -2,7 +2,9 @@
 
 To use BitKeep Wallet with your dApp, your users must first install the BitKeep Wallet Chrome extension in their browser. BitKeep Wallet injects an `bitkeep.aptos` object into the [window](https://developer.mozilla.org/en-US/docs/Web/API/Window) of any web app the user visits.
 
-
+## npm package
+  - [Aptos Wallet Adapter](https://github.com/hippospace/aptos-wallet-adapter) 
+  
 ## Installed or not
 
 To check if the user has installed BitKeep Wallet, perform the below check:
@@ -131,7 +133,7 @@ const transaction = {
     }
  */
 const options = {
-  
+
     gas_unit_price: 100,
     max_gas_amount:10000
 } 
